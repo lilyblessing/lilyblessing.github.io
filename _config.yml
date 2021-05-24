@@ -61,6 +61,13 @@ include: null
 exclude: null
 ignore: null
 theme: keep
+# Search
+## See: https://github.com/theme-next/hexo-generator-searchdb
+search:
+  path: search.json
+  field: post
+  content: true
+  format: striptags
 deploy:
   type: git
   repository: git@github.com:lilyblessing/lilyblessing.github.io.git
