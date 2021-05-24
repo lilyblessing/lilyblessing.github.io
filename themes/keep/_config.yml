@@ -6,7 +6,7 @@ base_info:
   author: Lily Blessing
   url: http://www.lilyblessing.xyz/
   # Logo image (You can use local image, image external link or don’t fill)
-  logo_img:
+  logo_img: /images/favicon.ico
 
 
 # ---------------------------------------------------------------------------------------
