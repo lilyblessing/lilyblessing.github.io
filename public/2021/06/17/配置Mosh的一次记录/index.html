@@ -9,19 +9,19 @@
     
     <title>
         
-            Hello World |
+            配置Mosh的一次记录 |
         
         Lily&#39;s Blog
     </title>
     
 <link rel="stylesheet" href="/lilyblessing.github.io/css/style.css">
 
-    <link rel="shortcut icon" href="/lilyblessing.github.io/images/favicon.ico">
+    <link rel="shortcut icon" href="https://oss.lilyblessing.xyz/2:/ico/flower_leaf_153834.ico">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"www.lilyblessing.xyz","root":"/lilyblessing.github.io/","language":"zh-CN","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.jpg","favicon":"/images/favicon.ico","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.3"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.jpg","favicon":"https://oss.lilyblessing.xyz/2:/ico/flower_leaf_153834.ico","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -55,7 +55,7 @@
         <div class="left">
             
                 <a class="logo-image" href="/">
-                    <img src="/lilyblessing.github.io/images/favicon.ico">
+                    <img src="https://oss.lilyblessing.xyz/2:/ico/flower_leaf_153834.ico">
                 </a>
             
             <a class="logo-title" href="/">
@@ -133,7 +133,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Hello World</span>
+            <span class="title-hover-animation">配置Mosh的一次记录</span>
         </div>
 
         
@@ -151,7 +151,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-05-24 15:56:17
+        <i class="fas fa-edit"></i>&nbsp;2021-06-17 17:48:00
     </span>
     
     
@@ -159,12 +159,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>75 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>557 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -180,19 +180,46 @@
         
 
         <div class="article-content markdown-body">
-            <p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+            <h2 id="使用mosh来优化ssh连接"><a href="#使用mosh来优化ssh连接" class="headerlink" title="使用mosh来优化ssh连接"></a>使用mosh来优化ssh连接</h2><p>笔者日常使用的是广电网，极其不稳定的网络连接导致一个网络波动就能掉线。<br>由于SSH采用不可持续的连接，当网络出现波动时，SSH断开会导致当前正在运行的服务中断，对工作产生非常大的影响。<br>无意间知道了Mosh这个东西，安装使用下，发现网络波动这种事情不会导致服务器连接断开了，特意查了下，原来Mosh使用的是UDP方式传输：虽然也支持使用SSH配置进行认证登录，但是数据传输本身是使用UDP方式的，Mosh支持在会话中断时，不会立即退出，而是启用一个计时器，当网络恢复后会自动连接，同时会延续之前的会话，不会重新开启一个。实在是帮大忙了。</p>
+<h3 id="安装mosh"><a href="#安装mosh" class="headerlink" title="安装mosh"></a>安装mosh</h3><h4 id="1-在服务器端安装"><a href="#1-在服务器端安装" class="headerlink" title="1. 在服务器端安装"></a>1. 在服务器端安装</h4><p>安装以笔者使用的CentOS7系统为例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ yum install -y epel-release</span><br><span class="line">$ yum install -y mosh </span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>mosh使用的默认端口号UDP的60000-61000，很明显这个范围太大了，不合适也不安全。<br>我们只放行60000-60010区间的udp端口即可。</p>
+<ul>
+<li>如果是iptables<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iptables -I INPUT 1 -p udp --dport 60000:60010 -j ACCEPT</span><br></pre></td></tr></table></figure></li>
+<li>如果是firewall<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ firewall-cmd --permanent --zone=public --add-port=60000-60010/udp</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-在客户端使用"><a href="#2-在客户端使用" class="headerlink" title="2. 在客户端使用"></a>2. 在客户端使用</h4><ul>
+<li>如果默认端口号22没有改变，则只需要将原ssh改为mosh，mosh会自动接管ssh的配置(因此原ssh所用的端口号不能关闭)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mosh root@192.168.**.**</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果ssh默认端口号改变了，就需要指定端口号，这里ssh端口号为123</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mosh --ssh=<span class="string">&quot;ssh -p 123&quot;</span> root@192.168.**.**</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<ul>
+<li>只开启了一个或者几个mosh端口，需要指定端口号mosh端口号</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mosh -p 60010 --ssh=<span class="string">&quot;ssh -p 123&quot;</span> root@192.168.**.**</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+<ul>
+<li>不用密码使用秘钥登录 需要将服务器与本机的密钥的目录写好</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosh -p 60010 --ssh=<span class="string">&quot;/usr/bin/ssh -i /home/ivo/.ssh/id_rsa&quot;</span> root@192.168.**.**</span><br></pre></td></tr></table></figure>
+
+<h4 id="这里推荐一个终端-FluentTerminal"><a href="#这里推荐一个终端-FluentTerminal" class="headerlink" title="这里推荐一个终端 FluentTerminal"></a>这里推荐一个终端 <a class="link"   target="_blank" rel="noopener" href="https://github.com/felixse/FluentTerminal" >FluentTerminal<i class="fas fa-external-link-alt"></i></a></h4><p>这个终端采用fluent设计，界面很美观，而且原生支持mosh连接，感兴趣的朋友可以自行安装体验<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://github.com/felixse/FluentTerminal/raw/master/Screenshots/terminal.png"
+                      alt="FluentTerminal"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://github.com/felixse/FluentTerminal/raw/master/Screenshots/settings.png"
+                      alt="FluentSettings"
+                ></p>
 
         </div>
 
@@ -200,11 +227,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：Hello World</li>
+        <li>本文标题：配置Mosh的一次记录</li>
         <li>本文作者：Lily Blessing</li>
-        <li>创建时间：2021-05-24 15:56:17</li>
+        <li>创建时间：2021-06-17 17:48:00</li>
         <li>
-            本文链接：http://www.lilyblessing.xyz/2021/05/24/hello-world/
+            本文链接：http://www.lilyblessing.xyz/2021/06/17/配置Mosh的一次记录/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -215,6 +242,26 @@
             </div>
         
 
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/lilyblessing.github.io/2021/06/18/%E6%90%AD%E5%BB%BA%E8%AE%A2%E9%98%85%E8%BD%AC%E6%8D%A2%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%B8%80%E6%AC%A1%E8%AE%B0%E5%BD%95/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">搭建订阅转换服务的一次记录</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+            </div>
         
 
         
@@ -328,7 +375,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8mosh%E6%9D%A5%E4%BC%98%E5%8C%96ssh%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text">使用mosh来优化ssh连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85mosh"><span class="nav-number">1.1.</span> <span class="nav-text">安装mosh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 在服务器端安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%9C%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 在客户端使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E6%8E%A8%E8%8D%90%E4%B8%80%E4%B8%AA%E7%BB%88%E7%AB%AF-FluentTerminal"><span class="nav-number">1.1.3.</span> <span class="nav-text">这里推荐一个终端 FluentTerminal</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
