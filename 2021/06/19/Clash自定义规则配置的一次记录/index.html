@@ -159,12 +159,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>506 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>598 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -181,8 +181,7 @@
 
         <div class="article-content markdown-body">
             <h1 id="Clash自定义规则配置"><a href="#Clash自定义规则配置" class="headerlink" title="Clash自定义规则配置"></a>Clash自定义规则配置</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>体验了一段时间，Clash的分流功能很好用，而且用订阅转换可以很方便的把v2和ssr的订阅链接转换为clash使用。但是也存在一个痛点，个别网站的规则并没有收录于在线规则列表中，需要自己本地手动添加；而添加之后，每次更新订阅之前手动写入的规则就会被覆盖掉。本来打算在转换服务器中添加自定义规则，折腾一番发现clash客户端上自带这种功能。</p>
-<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><ol>
-<li><p>写入自定义规则<br>在<code>Profiles</code>页面找到需要加入特定规则的配置项，第三个图标即为编辑规则<br><img  
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h3 id="1-写入自定义规则"><a href="#1-写入自定义规则" class="headerlink" title="1. 写入自定义规则"></a>1. 写入自定义规则</h3><p>在<code>Profiles</code>页面找到需要加入特定规则的配置项，第三个图标即为编辑规则<br><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://oss.lilyblessing.xyz/2:/img/editRules.jpg"
@@ -198,14 +197,13 @@
                      data-src="https://oss.lilyblessing.xyz/2:/img/CreatNewRule.jpg"
                       alt="CreatNewRule"
                 ><br>编辑完毕后，点击右上角的<code>Add</code>加入规则集，然后点击右上角的<code>Save</code>写入磁盘。</p>
-</li>
-<li><p>获取自定义规则代码<br>在<code>Profiles</code>页面找到刚刚加入特定规则的配置项，第一个图标<code>&lt; &gt;</code>即为打开规则文件。<br>打开后按<code>Ctrl+F</code>搜索<code>rules</code>，即可定位指规则集部分。<br>此时规则从第一行至<code>  - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连</code>的前一行为你的自定义规则条目，将其复制。</p>
-</li>
-<li><p>预处理自定义规则<br>打开<code>Clash - Settings - Profiles - Parsers - Edit</code>打开预处理规则<br>之前修改以下代码复制进去</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">parsers: <span class="comment"># array</span></span><br><span class="line">  - url: https://****.***/******  <span class="comment">#将这些替换成你的订阅链接</span></span><br><span class="line">  - url: https://****.***/******</span><br><span class="line">    yaml:</span><br><span class="line">      prepend-rules:</span><br><span class="line">        - DOMAIN-SUFFIX,****.com,🚀 节点选择  <span class="comment">#将这些替换成你的规则</span></span><br><span class="line">        - DOMAIN-KEYWORD,****,🚀 节点选择</span><br></pre></td></tr></table></figure>
+<h3 id="2-获取自定义规则代码"><a href="#2-获取自定义规则代码" class="headerlink" title="2. 获取自定义规则代码"></a>2. 获取自定义规则代码</h3><p>在<code>Profiles</code>页面找到刚刚加入特定规则的配置项，第一个图标<code>&lt; &gt;</code>即为打开规则文件。<br>打开后按<code>Ctrl+F</code>搜索<code>rules</code>，即可定位指规则集部分。<br>此时规则从第一行至<code>  - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连</code>的前一行为你的自定义规则条目，将其复制。</p>
+<h3 id="3-预处理自定义规则"><a href="#3-预处理自定义规则" class="headerlink" title="3. 预处理自定义规则"></a>3. 预处理自定义规则</h3><p>打开<code>Clash - Settings - Profiles - Parsers - Edit</code>打开预处理规则<br>之前修改以下代码复制进去  </p>
+<ul>
+<li>这是单个配置文件的情况<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">parsers: <span class="comment"># array</span></span><br><span class="line">  - url: https://****.***/******  <span class="comment">#将这些替换成你的订阅链接</span></span><br><span class="line">    yaml:</span><br><span class="line">      prepend-rules:</span><br><span class="line">        - DOMAIN-SUFFIX,****.com,🚀 节点选择  <span class="comment">#将这些替换成你的规则</span></span><br><span class="line">        - DOMAIN-KEYWORD,****,🚀 节点选择</span><br></pre></td></tr></table></figure></li>
+<li>如果有多个配置文件，并且订阅链接的域是一样的话，可以使用正则表达式<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">parsers: <span class="comment"># array</span></span><br><span class="line">  - reg: https://abcd.xyz.+$  <span class="comment">#将abcd.xyz替换成你的订阅链接的相同部分</span></span><br><span class="line">    yaml:</span><br><span class="line">      prepend-rules:</span><br><span class="line">        - DOMAIN-SUFFIX,****.com,🚀 节点选择  <span class="comment">#将这些替换成你的规则</span></span><br><span class="line">        - DOMAIN-KEYWORD,****,🚀 节点选择</span><br></pre></td></tr></table></figure></li>
+</ul>
 <p>点击右下角保存，然后去更新一下订阅的配置文件。<br>可以点击<code>editRules</code>检查一下规则是否确实被写入了。</p>
-</li>
-</ol>
 
         </div>
 
@@ -230,6 +228,21 @@
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/lilyblessing.github.io/2021/06/20/%E4%BA%8C%E5%88%BA%E8%9E%88%E8%90%8C%E8%B1%9A%E7%9A%84%E8%90%8C%E8%90%8C%E5%9B%BE%E6%94%B6%E8%97%8F%E6%96%B9%E6%A1%88/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">二刺螈萌豚的萌萌图收藏方案</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">
@@ -361,7 +374,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Clash%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Clash自定义规则配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">流程</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Clash%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Clash自定义规则配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%86%99%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 写入自定义规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%8E%B7%E5%8F%96%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 获取自定义规则代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%A2%84%E5%A4%84%E7%90%86%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 预处理自定义规则</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
