@@ -68,6 +68,18 @@ search:
   field: post
   content: true
   format: striptags
+bangumi:
+  enable: true
+  path:
+  vmid: 1705649
+  title: '追番列表'
+  quote: '生命不息，追番不止！'
+  show: 1
+  loading:
+  metaColor:
+  color:
+  webp:
+  progress:
 deploy:
   type: git
   repository: git@github.com:lilyblessing/lilyblessing.github.io.git
