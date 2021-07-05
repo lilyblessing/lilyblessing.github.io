@@ -108,7 +108,7 @@ post:
   # Author label
   author_label:
     enable: true
-    auto: true  # if true, show Lv1, Lv2, Lv3... , If false, show custom label
+    auto: false  # if true, show Lv1, Lv2, Lv3... , If false, show custom label
     # label array item can be one or more
     custom_label_list: [ "Trainee", "Engineer", "Architect", "CTO", "BOSS" ]
 
@@ -171,8 +171,8 @@ local_search:
 # Comment plugin
 # ---------------------------------------------------------------------------------------
 comment:
-  enable: false
-  use: valine  # values: valine | gitalk | twikoo
+  enable: true
+  use: gitalk  # values: valine | gitalk | twikoo
 
   # Valine
   # See: https://github.com/xCss/Valine
@@ -184,10 +184,10 @@ comment:
   # Gitalk
   # See: https://github.com/gitalk/gitalk
   gitalk:
-    github_id:             # GitHub repo owner
-    repository:            # Repository name to store issues
-    client_id:             # GitHub Application Client ID
-    client_secret:         # GitHub Application Client Secret
+    github_id: lilyblessing             # GitHub repo owner
+    repository: gitalk            # Repository name to store issues
+    client_id: 2b56bf666f14152f579e             # GitHub Application Client ID
+    client_secret: b2658b0993a7d3ceb78f7284a3363281b26f9bde        # GitHub Application Client Secret
 
   # Twikoo
   # See: https://github.com/imaegoo/twikoo
