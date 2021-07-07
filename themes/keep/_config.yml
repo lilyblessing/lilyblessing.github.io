@@ -17,7 +17,7 @@ style:
   primary_color: '#0066CC'
 
   # Avatar (You can use local image or image external link)
-  avatar: /images/avatar.jpg
+  avatar: https://avatars.githubusercontent.com/u/62462973?v=4
 
   # Favicon (You can use local image or image external link)
   favicon: https://oss.lilyblessing.xyz/2:/ico/flower_leaf_153834.ico
