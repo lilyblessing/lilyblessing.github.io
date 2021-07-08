@@ -9,7 +9,7 @@
     
     <title>
         
-            二刺螈萌豚的萌萌图收藏方案 |
+            密码管理工具KeePass的使用心得 |
         
         Lily&#39;s Blog
     </title>
@@ -146,7 +146,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">二刺螈萌豚的萌萌图收藏方案</span>
+            <span class="title-hover-animation">密码管理工具KeePass的使用心得</span>
         </div>
 
         
@@ -164,7 +164,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-06-20 00:14:35
+        <i class="fas fa-edit"></i>&nbsp;2021-07-07 23:27:58
     </span>
     
     
@@ -172,12 +172,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>938 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>784 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -193,100 +193,61 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="肥肥的仓鼠向冻鳗图片处理流程"><a href="#肥肥的仓鼠向冻鳗图片处理流程" class="headerlink" title="肥肥的仓鼠向冻鳗图片处理流程"></a>肥肥的仓鼠向冻鳗图片处理流程</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>每一个喜爱冻鳗游戏的二刺螈肥肥大概都有收集二刺螈萌<del>色</del>图的爱好；俺们二刺螈萌豚一看到萌<del>色</del>图，当场就走不动道了。那么我在此简要的分享下本肥肥的处理流程（<del>进入贤者模式</del><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://oss.lilyblessing.xyz/2:/img/pid90425059.webp"
-                      alt="pid90425059"
-                ></p>
-<h3 id="1-所需的工具与项目"><a href="#1-所需的工具与项目" class="headerlink" title="1. 所需的工具与项目"></a>1. 所需的工具与项目</h3><ul>
-<li>浏览器（推荐Chrome、Edge等chromium内核浏览器，以下均按Edge浏览器配置）</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" >Tampermonkey<i class="fas fa-external-link-alt"></i></a>（类似的）脚本管理器</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.voidtools.com/zh-cn/" >Everything<i class="fas fa-external-link-alt"></i></a> 强大的文件索引工具</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://cn.bandisoft.com/honeyview/" >Honeyview<i class="fas fa-external-link-alt"></i></a> 简约而不简单的图片浏览工具</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/AaronFeng753/Waifu2x-Extension-GUI" >Waifu2x-Extension-GUI<i class="fas fa-external-link-alt"></i></a> Waifu2x基于机器学习的图片近似无损放大工具</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://duplicatefilefinder4pc.com/sc/duplicate-photo-finder-plus.htm" >Duplicate photo Finder plus<i class="fas fa-external-link-alt"></i></a> 快速高效的图片去重工具</li>
-</ul>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>关于密码的管理，以前一直用的chrome浏览器自带的密码管理功能；但总有一些网站在注册时，chrome做不到智能的识别，这时就需要人自己现场编一个密码并且记住；这样做带来的后果就是密码的重复度会很高，而且容易遗忘、管理困难。同时，现场编密码对于一个有起名困难症的人来说是一种煎熬。<del>(咕,杀了我吧)</del><br>在饱受自己想密码的苦痛折磨后，我开始寻找一款合适的密码管理工具，然后我发现了KeePass。这是一款跨平台开源免费的密码管理工具。</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://oss.lilyblessing.xyz/2:/img/PID90380296.webp"
-                      alt="PID90380296"
+                     data-src="http://oss.lilyblessing.xyz/2:/img/pid=90877153.webp"
+                      alt="start"
                 ></p>
-<h3 id="2-获取来源"><a href="#2-获取来源" class="headerlink" title="2. 获取来源"></a>2. 获取来源</h3><h4 id="1-pixiv"><a href="#1-pixiv" class="headerlink" title="1. pixiv"></a>1. <a class="link"   target="_blank" rel="noopener" href="https://www.pixiv.net/" >pixiv<i class="fas fa-external-link-alt"></i></a></h4><p> 日系插画站 深得画师们钟爱 萌豚最主要的<del>色图</del>来源  </p>
-<ul>
-<li>如果你恰好有安装过aria2这款下载引擎的话<br>对应的pixiv下载脚本是<a class="link"   target="_blank" rel="noopener" href="https://github.com/Mapaler/PixivUserBatchDownload" >PixivUserBatchDownload<i class="fas fa-external-link-alt"></i></a></li>
-<li>如果你没有安装过aria2也不要紧（<del>现在装上也来得及</del> 分别是前后端的<a class="link"   target="_blank" rel="noopener" href="https://microsoftedge.microsoft.com/addons/detail/aria2-for-edge/jjfgljkjddpcpfapejfkelkbjbehagbh" >Aria2 For Edge<i class="fas fa-external-link-alt"></i></a>和<a class="link"   target="_blank" rel="noopener" href="https://github.com/agalwood/Motrix" >Morix<i class="fas fa-external-link-alt"></i></a>）<br>当然不装也可以 Pixiv专用的下载工具是<a class="link"   target="_blank" rel="noopener" href="https://github.com/leoding86/pixiv-omina/releases" >pixiv-omina<i class="fas fa-external-link-alt"></i></a> </li>
+<h2 id="所需的工具和项目"><a href="#所需的工具和项目" class="headerlink" title="所需的工具和项目"></a>所需的工具和项目</h2><ul>
+<li>软件本体 <a class="link"   target="_blank" rel="noopener" href="https://keepass.info/" >KeePass<i class="fas fa-external-link-alt"></i></a></li>
+<li>Chrome浏览器扩展 <a class="link"   target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/kee-password-manager/mmhlniccooihdimnnjhamobppdhaolme" >Kee - Password Manager<i class="fas fa-external-link-alt"></i></a></li>
+<li>Chrome扩展的辅助插件 <a class="link"   target="_blank" rel="noopener" href="https://github.com/kee-org/keepassrpc/releases" >KeePassRPC<i class="fas fa-external-link-alt"></i></a></li>
+<li>安卓端同步管理工具 <a class="link"   target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=keepass2android.keepass2android&hl=zh&gl=US" >Keepass2Android<i class="fas fa-external-link-alt"></i></a></li>
+<li>同步数据库用网盘 随意 我的选择是 <a class="link"   target="_blank" rel="noopener" href="https://onedrive.live.com/" >OneDrive<i class="fas fa-external-link-alt"></i></a> 免费个人同步空间5G足够使用</li>
 </ul>
-<h4 id="2-twitter"><a href="#2-twitter" class="headerlink" title="2. twitter"></a>2. <a class="link"   target="_blank" rel="noopener" href="https://twitter.com/" >twitter<i class="fas fa-external-link-alt"></i></a></h4><p> 全球最大社交网站之一 关注画师就能第一时间获取各种<del>色图</del>  </p>
-<ul>
-<li>推特这边的下载采用浏览器扩展 <a class="link"   target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/twitter-media-downloader/cblpjenafgeohmnjknfhpdbdljfkndig" >twitter-media-downloader<i class="fas fa-external-link-alt"></i></a></li>
-</ul>
-<h4 id="3-telegram"><a href="#3-telegram" class="headerlink" title="3. telegram"></a>3. <a class="link"   target="_blank" rel="noopener" href="https://telegram.org/" >telegram<i class="fas fa-external-link-alt"></i></a></h4><p> 图片频道+万能的群友=车来！简单介绍几个图站频道</p>
-<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://t.me/pixiv_top50" >PIXIV站每日 Top50搬运<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://t.me/danbooru_sfw" >Danbooru<i class="fas fa-external-link-alt"></i></a>【SFW】</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://t.me/danbooru_nsfw" >Danbooru<i class="fas fa-external-link-alt"></i></a>【NSFW】</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://t.me/yandere_safe" >Yandere <i class="fas fa-external-link-alt"></i></a>【SAFE】</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://t.me/yandere_nsfw" >Yandere<i class="fas fa-external-link-alt"></i></a>【NSFW】<br>如上所示Yandere和Danbooru这种图站由于有爬虫自动传telegram就不单独介绍了</li>
-</ul>
-<h3 id="3-整理与筛选"><a href="#3-整理与筛选" class="headerlink" title="3. 整理与筛选"></a>3. 整理与筛选</h3><p>不管是Pixiv还是Twitter，找画师空间批量爬取下载之后的图片一定是良莠不齐的<br>这时就需要一个好用的图片文件浏览工具和查看工具了  </p>
-<h4 id="1-Everything"><a href="#1-Everything" class="headerlink" title="1. Everything"></a>1. Everything</h4><p>作为远超windows文件检索性能的索引工具，仅仅用作图片浏览工具也是非常不错的<br><img  
+<h1 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h1><h2 id="Windows端"><a href="#Windows端" class="headerlink" title="Windows端"></a>Windows端</h2><p>下载软件后，新建数据库，设置好数据库密码后既可使用本软件生成随机密码。  </p>
+<h3 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h3><p>首先我们先处理界面语言，按Alt+V+L可以打开语言选择界面。<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://oss.lilyblessing.xyz/2:/img/EverythingPicBrowse.jpg"
-                      alt="EverythingPicBrowse"
-                ><br>可以限定大小进行筛选，例：筛选大于1MB的图片<br><img  
+                     data-src="http://oss.lilyblessing.xyz/2:/img/SelectLang.webp"
+                      alt="SelectLang"
+                ><br>点击左下方的【获取更多语言…】选择简体中文语言文件下载，点击【打开文件夹】将刚刚下载的语言文件放入，然后重启软件切换语言。</p>
+<h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><p>注意，数据库密码一定要牢记，同时，如果觉得不够安全可以选择增加密钥验证。<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://oss.lilyblessing.xyz/2:/img/EverythingSizeFilter.jpg"
-                      alt="EverythingSizeFilter"
-                ><br>可以限定方向筛选，例：筛选所有竖向的图片<br><img  
+                     data-src="http://oss.lilyblessing.xyz/2:/img/newDatabases.webp"
+                      alt="newDatabases"
+                ><br>可以将数据库文件存放在Onedrive网盘的同步目录下，方便后期多终端调用。<br>Ctrl+i可以直接新增一条记录，Ctrl+S保存。  此时，由于新增记录，数据库中已经存在改动，Onedrive会自动上传你的改动；但如果在其他终端(比如手机)也做了改动，OneDrive就会判断文件出现冲突无法完成合并。<br>此时，可以通过选择【文件】–&gt;【同步】–&gt;【与文件同步…】，选择Onedrive中的同步文件，【同步】合并数据改动。<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://oss.lilyblessing.xyz/2:/img/EverythingOrientationFilter.jpg"
-                      alt="EverythingOrientationFilter"
-                ><br>可以方便的搜索作品ID或者搜索画师作品，例：搜索torino老师的作品<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://oss.lilyblessing.xyz/2:/img/EverythingIDFilter.jpg"
-                      alt="EverythingIDFilter"
+                     data-src="http://oss.lilyblessing.xyz/2:/img/Sync.webp"
+                      alt="Sync"
                 ></p>
-<p>当然Everything本身并不是仅仅用来处理图片的，还有更多进阶用法，可以自行学习(也许我可能大概应该会单独写一篇讲解Everything的进阶操作，<del>当然更可能直接摸了</del></p>
-<hr>
-<h4 id="2-蜂蜜浏览器-Honeyview"><a href="#2-蜂蜜浏览器-Honeyview" class="headerlink" title="2. 蜂蜜浏览器 Honeyview"></a>2. 蜂蜜浏览器 Honeyview</h4><p>专业的图片查看工具<br><img  
+<h3 id="浏览器扩展"><a href="#浏览器扩展" class="headerlink" title="浏览器扩展"></a>浏览器扩展</h3><p>安装浏览器扩展后，下载辅助插件，将其放入Keepass的插件文件夹，按Alt+T+P可以打开【插件管理器】，点击【打开文件夹】可以打开插件文件夹，将下载的RPC放入，重启软件。<br>当软件重启完成浏览器会自动开始接入数据库，<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://oss.lilyblessing.xyz/2:/img/Honeyview.jpg"
-                      alt="Honeyview"
-                ><br>还支持<strong>双开页</strong>和<strong>文件夹跳转</strong>，可以作为漫画阅读器<br><img  
+                     data-src="https://www.softzone.es/app/uploads-softzone.es/2020/01/Kee-vincular-con-KeePass.jpg"
+                      alt="RPC01"
+                ><br>输入KeePass本体弹出的验证窗口中的红色代码即可确认链接。<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://oss.lilyblessing.xyz/2:/img/HoneyviewWithManga2.jpg"
-                      alt="HoneyviewWithManga2"
+                     data-src="https://www.softzone.es/app/uploads-softzone.es/2020/01/Clave-conexi%C3%B3n-Kee-KeePass.jpg"
+                      alt="RPC02"
+                ><br>链接成功后浏览器扩展会提示选择使用【新的数据库】还是使用【现有数据库】，这里选择现有数据库<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://www.softzone.es/app/uploads-softzone.es/2020/01/KeePass-Usar-base-de-datos.jpg"
+                      alt="RPC03"
+                ><br>至此浏览器扩展部分就完成了。</p>
+<h2 id="Android端"><a href="#Android端" class="headerlink" title="Android端"></a>Android端</h2><p>Android端的选择是Keepass2Android，打开之前Onedrive中同步的数据库文件即可。在手机的系统设置中搜索自动填充服务，设定为Keepass2Android即可接管手机的密码填充。记得加入电池优化白名单。<br>至此结束。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://oss.lilyblessing.xyz/2:/img/pid=90743556.webp"
+                      alt="end"
                 ></p>
-<hr>
-<h4 id="3-Duplicate-photo-Finder"><a href="#3-Duplicate-photo-Finder" class="headerlink" title="3. Duplicate photo Finder"></a>3. Duplicate photo Finder</h4><p>如果你还同时下载了telegram图片频道的合集包，那么就有可能出现部分图片重复<br>用这软件处理图片快速去重，效率很高哦<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://oss.lilyblessing.xyz/2:/img/DuplicatePhoto.jpg"
-                      alt="DuplicatePhoto"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://oss.lilyblessing.xyz/2:/img/DuplicatePhotoResult.jpg"
-                      alt="DuplicatePhotoResult"
-                ></p>
-<hr>
-<p>整理完可以使用Waifu2x对<del>色图</del>进行近似无损放大与降噪，这里使用带图形化界面的<strong>Waifu2x-Extension-GUI</strong><br>简单易上手就不多赘述了</p>
-<h3 id="4-备份与存档"><a href="#4-备份与存档" class="headerlink" title="4. 备份与存档"></a>4. 备份与存档</h3><p>当你做完这一系列操作会发现也许可能你的硬盘的空间突然就吃紧了，这时候就该准备上传云盘了<br><strong>首先排除百度云</strong>，国内的网盘可以选择万年没翻车的115，也可以选择打着 <em>上传下载不限速</em> 口号的阿里云进行存储<br>海外的云空间可以选择Onedrive和GoogleDrive这种成熟的商业网盘<br>当然，如果你足够Rich也可以选择直接本地局域网搭建一个NAS作为永久存储，堆积你所珍爱的<del>色图</del>们<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://oss.lilyblessing.xyz/2:/img/PID90548843.webp"
-                      alt="PID90548843"
-                ></p>
-<hr>
-<p>至此你已经算是一只合格的肥肥仓鼠啦 <del>该摸啦</del></p>
 
         </div>
 
@@ -294,11 +255,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：二刺螈萌豚的萌萌图收藏方案</li>
+        <li>本文标题：密码管理工具KeePass的使用心得</li>
         <li>本文作者：Lily Blessing</li>
-        <li>创建时间：2021-06-20 00:14:35</li>
+        <li>创建时间：2021-07-07 23:27:58</li>
         <li>
-            本文链接：https://www.lilyblessing.tk/2021/06/20/二刺螈萌豚的萌萌图收藏方案/
+            本文链接：https://www.lilyblessing.tk/2021/07/07/密码管理工具KeePass的使用心得/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -312,29 +273,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/lilyblessing.github.io/2021/07/05/%E9%85%8D%E7%BD%AEtmux%E7%9A%84%E4%B8%80%E6%AC%A1%E8%AE%B0%E5%BD%95/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">配置tmux的一次记录</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/lilyblessing.github.io/2021/06/19/Clash%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE%E7%9A%84%E4%B8%80%E6%AC%A1%E8%AE%B0%E5%BD%95/"
+                           href="/lilyblessing.github.io/2021/07/05/Youtube%E7%9B%B4%E6%92%AD%E5%BD%95%E5%88%B6%E4%B8%8E%E4%B8%8B%E8%BD%BD%E7%9A%84%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Clash自定义规则配置的一次记录</span>
+                                <span class="post-nav-title-item">Youtube直播录制与下载的配置记录</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -518,7 +464,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%82%A5%E8%82%A5%E7%9A%84%E4%BB%93%E9%BC%A0%E5%90%91%E5%86%BB%E9%B3%97%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">肥肥的仓鼠向冻鳗图片处理流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%89%80%E9%9C%80%E7%9A%84%E5%B7%A5%E5%85%B7%E4%B8%8E%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.2.</span> <span class="nav-text">1. 所需的工具与项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%8E%B7%E5%8F%96%E6%9D%A5%E6%BA%90"><span class="nav-number">1.3.</span> <span class="nav-text">2. 获取来源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-pixiv"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. pixiv</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-twitter"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. twitter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-telegram"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. telegram</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%95%B4%E7%90%86%E4%B8%8E%E7%AD%9B%E9%80%89"><span class="nav-number">1.4.</span> <span class="nav-text">3. 整理与筛选</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Everything"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. Everything</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%9C%82%E8%9C%9C%E6%B5%8F%E8%A7%88%E5%99%A8-Honeyview"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 蜂蜜浏览器 Honeyview</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Duplicate-photo-Finder"><span class="nav-number">1.4.3.</span> <span class="nav-text">3. Duplicate photo Finder</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%AD%98%E6%A1%A3"><span class="nav-number">1.5.</span> <span class="nav-text">4. 备份与存档</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%80%E9%9C%80%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">所需的工具和项目</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">使用流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows%E7%AB%AF"><span class="nav-number">2.1.</span> <span class="nav-text">Windows端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%89%E5%8C%96"><span class="nav-number">2.1.1.</span> <span class="nav-text">汉化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5"><span class="nav-number">2.1.2.</span> <span class="nav-text">同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95"><span class="nav-number">2.1.3.</span> <span class="nav-text">浏览器扩展</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E7%AB%AF"><span class="nav-number">2.2.</span> <span class="nav-text">Android端</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
