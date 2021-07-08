@@ -172,12 +172,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>784 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.2k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
         </span>
     
     
@@ -207,25 +207,35 @@
 <li>安卓端同步管理工具 <a class="link"   target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=keepass2android.keepass2android&hl=zh&gl=US" >Keepass2Android<i class="fas fa-external-link-alt"></i></a></li>
 <li>同步数据库用网盘 随意 我的选择是 <a class="link"   target="_blank" rel="noopener" href="https://onedrive.live.com/" >OneDrive<i class="fas fa-external-link-alt"></i></a> 免费个人同步空间5G足够使用</li>
 </ul>
-<h1 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h1><h2 id="Windows端"><a href="#Windows端" class="headerlink" title="Windows端"></a>Windows端</h2><p>下载软件后，新建数据库，设置好数据库密码后既可使用本软件生成随机密码。  </p>
-<h3 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h3><p>首先我们先处理界面语言，按Alt+V+L可以打开语言选择界面。<br><img  
+<h1 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h1><h2 id="Windows端"><a href="#Windows端" class="headerlink" title="Windows端"></a>Windows端</h2><p>下载软件后，打开软件，可以先点【Cancel】取消。不去新建数据库，我们把界面先汉化了再说。</p>
+<h3 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h3><p>首先我们先处理界面语言，按Alt+V+L可以打开语言选择界面对话框 。<br><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="http://oss.lilyblessing.xyz/2:/img/SelectLang.webp"
                       alt="SelectLang"
                 ><br>点击左下方的【获取更多语言…】选择简体中文语言文件下载，点击【打开文件夹】将刚刚下载的语言文件放入，然后重启软件切换语言。</p>
-<h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><p>注意，数据库密码一定要牢记，同时，如果觉得不够安全可以选择增加密钥验证。<br><img  
+<h3 id="新建数据库"><a href="#新建数据库" class="headerlink" title="新建数据库"></a>新建数据库</h3><p>新建数据库，可以将数据库文件存放在Onedrive网盘的同步目录下，方便后期多终端调用。<br><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="http://oss.lilyblessing.xyz/2:/img/newDatabases.webp"
                       alt="newDatabases"
-                ><br>可以将数据库文件存放在Onedrive网盘的同步目录下，方便后期多终端调用。<br>Ctrl+i可以直接新增一条记录，Ctrl+S保存。  此时，由于新增记录，数据库中已经存在改动，Onedrive会自动上传你的改动；但如果在其他终端(比如手机)也做了改动，OneDrive就会判断文件出现冲突无法完成合并。<br>此时，可以通过选择【文件】–&gt;【同步】–&gt;【与文件同步…】，选择Onedrive中的同步文件，【同步】合并数据改动。<br><img  
+                ><br>设置数据库密码，可以同时使用三种密码验证方案；密码、密钥验证与win账号验证是AND关系，缺一不可。如果同时勾选三种验证，那么只要有一个验证不通过就打不开数据库，更安全但是不太方便，一般我们使用密码验证就可以了。<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="http://oss.lilyblessing.xyz/2:/img/Sync.webp"
-                      alt="Sync"
-                ></p>
-<h3 id="浏览器扩展"><a href="#浏览器扩展" class="headerlink" title="浏览器扩展"></a>浏览器扩展</h3><p>安装浏览器扩展后，下载辅助插件，将其放入Keepass的插件文件夹，按Alt+T+P可以打开【插件管理器】，点击【打开文件夹】可以打开插件文件夹，将下载的RPC放入，重启软件。<br>当软件重启完成浏览器会自动开始接入数据库，<br><img  
+                     data-src="http://oss.lilyblessing.xyz/2:/img/S_3PasswordMethon.webp"
+                      alt="S_3PasswordMethon"
+                ><br>然后使用默认配置，点【OK】即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://oss.lilyblessing.xyz/2:/img/S_DefConf.webp"
+                      alt="S_DefConf"
+                ><br>注意，数据库密码一定要牢记，如果不放心可以在这一步选择打印（没有打印机就找个小本本写上你的数据库密码，其实有了密码管理工具只需要记一个主密码应该还是不难的），一般这里选择跳过即可。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://oss.lilyblessing.xyz/2:/img/S_Skip.webp"
+                      alt="S_Skip"
+                ><br>至此已经可以使用本软件生成随机密码。<br>Ctrl+i可以直接新增一条记录，Ctrl+S保存。当然仅仅是装好软件还是不太够的；平常最主要的使用场景是浏览器使用和移动端使用。</p>
+<h3 id="浏览器扩展"><a href="#浏览器扩展" class="headerlink" title="浏览器扩展"></a>浏览器扩展</h3><h4 id="浏览器扩展的安装与配置"><a href="#浏览器扩展的安装与配置" class="headerlink" title="浏览器扩展的安装与配置"></a>浏览器扩展的安装与配置</h4><p>安装浏览器扩展后，下载辅助插件，将其放入Keepass的插件文件夹，按Alt+T+P可以打开【插件管理器】，点击【打开文件夹】可以打开插件文件夹，将下载的RPC放入，重启软件。<br>当软件重启完成浏览器会自动开始接入数据库，<br><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://www.softzone.es/app/uploads-softzone.es/2020/01/Kee-vincular-con-KeePass.jpg"
@@ -240,7 +250,41 @@
                      src="/images/loading.svg"
                      data-src="https://www.softzone.es/app/uploads-softzone.es/2020/01/KeePass-Usar-base-de-datos.jpg"
                       alt="RPC03"
-                ><br>至此浏览器扩展部分就完成了。</p>
+                ><br>至此浏览器扩展就安装完成了。</p>
+<h4 id="浏览器扩展的使用方法"><a href="#浏览器扩展的使用方法" class="headerlink" title="浏览器扩展的使用方法"></a>浏览器扩展的使用方法</h4><p>当我们再某个网站注册或者输入信息登陆以后，可以点击浏览器扩展Kee的图标，弹出创建记录的对话框<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://oss.lilyblessing.xyz/2:/img/S_SavePwd.webp"
+                      alt="S_SavePwd"
+                ><br>这里点一下【+】创建新记录，会自动将刚刚输入的表单数据填上；这里删掉验证码的那行表单，然后点【NEXT】。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://oss.lilyblessing.xyz/2:/img/S_SavePwd02.webp"
+                      alt="S_SavePwd02"
+                ><br>然后选择一个群组路径保存这条信息记录，这里我选择放在我创建的【网站账号】群组中，点击【保存】<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://oss.lilyblessing.xyz/2:/img/S_SavePwdPathSelect.webp"
+                      alt="S_SavePwdPathSelect"
+                ><br>这样下次打开网站需要登陆的时候，点一下登陆的框框旁的Kee图标，就可以看到上次记录的信息了。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://oss.lilyblessing.xyz/2:/img/S_loginView.webp"
+                      alt="S_loginView"
+                ></p>
+<h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><p>此时，由于新增记录，数据库中已经存在改动，Onedrive会自动上传你的改动；但如果在其他终端(比如手机)也做了改动，OneDrive就会判断文件出现冲突无法完成合并。<br>此时，可以通过选择【文件】–&gt;【同步】–&gt;【与文件同步…】，选择Onedrive中的同步文件，【同步】合并数据改动。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://oss.lilyblessing.xyz/2:/img/Sync.webp"
+                      alt="Sync"
+                ></p>
+<hr>
+<p>Windows端还有其他功能，比如软件界面的自动填充也可以配置<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://oss.lilyblessing.xyz/2:/img/S_softwareAutoLogin.webp"
+                      alt="S_softwareAutoLogin"
+                ><br>这里就不过多赘述，请读者自行摸索。</p>
 <h2 id="Android端"><a href="#Android端" class="headerlink" title="Android端"></a>Android端</h2><p>Android端的选择是Keepass2Android，打开之前Onedrive中同步的数据库文件即可。在手机的系统设置中搜索自动填充服务，设定为Keepass2Android即可接管手机的密码填充。记得加入电池优化白名单。<br>至此结束。</p>
 <p><img  
                      lazyload
@@ -464,7 +508,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%80%E9%9C%80%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">所需的工具和项目</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">使用流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows%E7%AB%AF"><span class="nav-number">2.1.</span> <span class="nav-text">Windows端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%89%E5%8C%96"><span class="nav-number">2.1.1.</span> <span class="nav-text">汉化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5"><span class="nav-number">2.1.2.</span> <span class="nav-text">同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95"><span class="nav-number">2.1.3.</span> <span class="nav-text">浏览器扩展</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E7%AB%AF"><span class="nav-number">2.2.</span> <span class="nav-text">Android端</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%80%E9%9C%80%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">所需的工具和项目</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">使用流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows%E7%AB%AF"><span class="nav-number">2.1.</span> <span class="nav-text">Windows端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%89%E5%8C%96"><span class="nav-number">2.1.1.</span> <span class="nav-text">汉化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.1.2.</span> <span class="nav-text">新建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95"><span class="nav-number">2.1.3.</span> <span class="nav-text">浏览器扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">浏览器扩展的安装与配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">浏览器扩展的使用方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5"><span class="nav-number">2.1.4.</span> <span class="nav-text">同步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E7%AB%AF"><span class="nav-number">2.2.</span> <span class="nav-text">Android端</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
