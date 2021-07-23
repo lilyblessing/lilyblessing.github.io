@@ -84,7 +84,7 @@ mixin: # object
 ---
 
 #### 添加负载均衡组：
-打开Clash的主界面 切换至**`Settings`**选项卡，然后找到**`Profiles`**下的**`Parsers`**选项，然后点击**`edit`**  
+打开Clash的主界面 切换至`**Settings**`选项卡，然后找到`**Profiles**`下的`**Parsers**`选项，然后点击`**edit**`  
 自行更改以下代码保存：
 ```
 parsers: # 
