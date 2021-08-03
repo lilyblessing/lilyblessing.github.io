@@ -172,12 +172,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>598 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.4k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
         </span>
     
     
@@ -217,6 +217,35 @@
 <li>如果有多个配置文件，并且订阅链接的域是一样的话，可以使用正则表达式<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">parsers: <span class="comment"># array</span></span><br><span class="line">  - reg: https://abcd.xyz.+$  <span class="comment">#将abcd.xyz替换成你的订阅链接的相同部分</span></span><br><span class="line">    yaml:</span><br><span class="line">      prepend-rules:</span><br><span class="line">        - DOMAIN-SUFFIX,****.com,🚀 节点选择  <span class="comment">#将这些替换成你的规则</span></span><br><span class="line">        - DOMAIN-KEYWORD,****,🚀 节点选择</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>点击右下角保存，然后去更新一下订阅的配置文件。<br>可以点击<code>editRules</code>检查一下规则是否确实被写入了。</p>
+<h3 id="4-进阶配置"><a href="#4-进阶配置" class="headerlink" title="4. 进阶配置"></a>4. 进阶配置</h3><p>这部分主要讲一些略微进阶的配置，具体都可以在github的clash项目<a target="_blank" rel="noopener" href="https://docs.cfw.lbyczf.com/contents/configfile.html"><strong>wiki</strong></a>上查到。  </p>
+<h4 id="配置dns方面："><a href="#配置dns方面：" class="headerlink" title="配置dns方面："></a>配置dns方面：</h4><p>打开Clash的主界面 切换至**<code>Settings</code><strong>选项卡，然后找到</strong><code>Profile Mixin</code><strong>选项，<code>Type</code>选择<code>YAML</code>，然后点击YAML行的</strong><code>edit</code>  **<br>输入以下代码并保存:  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mixin: # object</span><br><span class="line">  dns:</span><br><span class="line">    enable: true</span><br><span class="line">    enhanced-mode: redir-host</span><br><span class="line">    nameserver:</span><br><span class="line">      - 114.114.114.114</span><br><span class="line">      - 223.5.5.5</span><br><span class="line">      - 1.2.4.8</span><br><span class="line">      - tls://dns.rubyfish.cn:853</span><br><span class="line">      - https://dns.alidns.com/dns-query</span><br><span class="line">    fallback:</span><br><span class="line">      - tls://1.0.0.1:853</span><br><span class="line">      - tls://8.8.4.4:853</span><br><span class="line">  tun:</span><br><span class="line">    enable: true</span><br><span class="line">    stack: gvisor</span><br><span class="line">    dns-hijack:</span><br><span class="line">      - 198.18.0.2:53</span><br><span class="line">    macOS-auto-route: true</span><br><span class="line">    macOS-auto-detect-interface: true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这样就配置好了</p>
+<hr>
+<h4 id="添加负载均衡组："><a href="#添加负载均衡组：" class="headerlink" title="添加负载均衡组："></a>添加负载均衡组：</h4><p>打开Clash的主界面 切换至**<code>Settings</code><strong>选项卡，然后找到</strong><code>Profiles</code><strong>下的</strong><code>Parsers</code><strong>选项，然后点击</strong><code>edit</code>**<br>自行更改以下代码保存：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">parsers: # </span><br><span class="line">  - reg: https://****.***/******  #将这些替换成你的订阅链接</span><br><span class="line">    yaml:</span><br><span class="line">      append-proxy-groups:  #添加自定义负载均衡组</span><br><span class="line">        - name: 🔮 HK负载均衡</span><br><span class="line">          type: load-balance</span><br><span class="line">          url: http://www.gstatic.com/generate_204</span><br><span class="line">          interval: 180</span><br><span class="line">          proxies:</span><br><span class="line">            - DIRECT</span><br><span class="line">        - name: 🔮 TW负载均衡</span><br><span class="line">          type: load-balance</span><br><span class="line">          url: http://www.gstatic.com/generate_204</span><br><span class="line">          interval: 180</span><br><span class="line">          proxies:</span><br><span class="line">            - DIRECT</span><br><span class="line">      prepend-rules:  #添加自定义规则</span><br><span class="line">        - DOMAIN-SUFFIX,****.com,🚀 节点选择 </span><br><span class="line">        - DOMAIN-KEYWORD,****,🚀 节点选择	</span><br><span class="line">      commands:</span><br><span class="line">        - proxy-groups.🔮 HK负载均衡.proxies=[]proxyNames|HK|香港 # 向🔮 HK负载均衡策略组添加所有定义的节点名，并按“HK|香港”正则表达式过滤</span><br><span class="line">        - proxy-groups.🔮 TW负载均衡.proxies=[]proxyNames|台湾 # 向🔮 HK负载均衡策略组添加所有定义的节点名，并按“台湾”正则表达式过滤</span><br><span class="line">        - proxy-groups.🚀 节点选择.proxies.8+🔮 HK负载均衡 # 向🚀 节点选择策略组添加组名🔮 HK负载均衡 proxies.8是从指 节点选择 组中从0开始数的第八位 这里意思是在第八位插入这个🔮 HK负载均衡组</span><br><span class="line">        - proxy-groups.🚀 节点选择.proxies.9+🔮 TW负载均衡 # 向🚀 节点选择策略组添加组名🔮 TW负载均衡</span><br></pre></td></tr></table></figure>
+<p>修改保存后，更新订阅就能看到新加入的负载均衡组了。</p>
+<p>这里介绍一下clash的几种策略组：<br>策略组有：<code>延迟最低</code>、<code>故障转移</code>、<code>手动选择</code>、<code>负载均衡</code> 四种模式。</p>
+<ul>
+<li>延迟最低：<code>url-test</code>，也就是自动选择默认组，顾名思义，每隔一段时间进行延迟测试，选择延时最低的节点。他有几个参数我稍微提一下<ol>
+<li><code>url:http://www.gstatic.com/generate_204</code> 这里是指延迟测试的网站，一般保持默认即可</li>
+<li><code>interval: 300</code> 这里是指自动测试、切换节点的间隔时间 如果觉得每次切换太慢，可以适当调整</li>
+<li><code>tolerance: 50</code> 容忍度，指测试出来一组节点中，延迟相差不太大的时候怎么处理；比如容忍度50，当前选择节点150ms，节点测速中只有更进一步低于50，也就是小于100ms时才会切换节点，避免频繁切换造成连接打断</li>
+</ol>
+</li>
+<li>故障转移：每次都选组内的第一个节点，如果无法使用在切到第二个，依此类推。</li>
+<li>手动选择：字面意思，自己手选点一个</li>
+<li>负载均衡：每次连接都随机到组里挑一个节点，如果那个节点故障了，就再随机挑一个；所以也有自动选择组中的一些参数。</li>
+</ul>
+<hr>
+<p>以上，暂时先讲这么多；后续还有啥没说的话，就想起来了再补。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://oss.lilyblessing.xyz/2:/img/pid=90325048.webp"
+                      alt="End"
+                ></p>
 
         </div>
 
@@ -448,7 +477,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Clash%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Clash自定义规则配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%86%99%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 写入自定义规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%8E%B7%E5%8F%96%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 获取自定义规则代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%A2%84%E5%A4%84%E7%90%86%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 预处理自定义规则</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Clash%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Clash自定义规则配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%86%99%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 写入自定义规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%8E%B7%E5%8F%96%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 获取自定义规则代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%A2%84%E5%A4%84%E7%90%86%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 预处理自定义规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 进阶配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEdns%E6%96%B9%E9%9D%A2%EF%BC%9A"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">配置dns方面：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%BB%84%EF%BC%9A"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">添加负载均衡组：</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
