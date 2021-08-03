@@ -14,7 +14,7 @@
   "dependencies": {
     "hexo": "^5.4.0",
     "hexo-admin": "^2.3.0",
-    "hexo-bilibili-bangumi": "^1.5.4",
+    "hexo-bilibili-bangumi": "^1.6.0",
     "hexo-deployer-git": "github:hexojs/hexo-deployer-git",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
