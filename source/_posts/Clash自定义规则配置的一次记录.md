@@ -53,7 +53,7 @@ parsers: # array
 这部分主要讲一些略微进阶的配置，具体都可以在github的clash项目[**wiki**](https://docs.cfw.lbyczf.com/contents/configfile.html)上查到。  
 
 #### 配置dns方面：  
-打开Clash的主界面 切换至**`Settings`**选项卡，然后找到**`Profile Mixin`**选项，`Type`选择`YAML`，然后点击YAML行的**`edit`  **
+打开Clash的主界面 切换至`Settings`选项卡，然后找到`Profile Mixin`选项，`Type`选择`YAML`，然后点击YAML行的`edit`  
 输入以下代码并保存:  
 ```
 mixin: # object
@@ -84,7 +84,7 @@ mixin: # object
 ---
 
 #### 添加负载均衡组：
-打开Clash的主界面 切换至**`Settings`**选项卡，然后找到**`Profiles`**下的**`Parsers`**选项，然后点击**`edit`**  
+打开Clash的主界面 切换至`Settings`选项卡，然后找到`Profiles`下的`Parsers`选项，然后点击`edit`  
 自行更改以下代码保存：
 ```
 parsers: # 
