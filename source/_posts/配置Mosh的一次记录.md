@@ -61,5 +61,6 @@ mosh -p 60010 --ssh="/usr/bin/ssh -i /home/ivo/.ssh/id_rsa" root@192.168.**.**
 #### 这里推荐一个终端 [FluentTerminal](https://github.com/felixse/FluentTerminal)
 
 这个终端采用fluent设计，界面很美观，而且原生支持mosh连接，感兴趣的朋友可以自行安装体验
-![FluentTerminal](https://github.com/felixse/FluentTerminal/raw/master/Screenshots/terminal.png)
-![FluentSettings](https://github.com/felixse/FluentTerminal/raw/master/Screenshots/settings.png)
+![FluentTerminal](https://raw.githubusercontent.com/lilyblessing/img/main/20211018/524be333a47eae8969b395f59c9151a5-060c8f.png)
+
+![FluentSettings](https://raw.githubusercontent.com/lilyblessing/img/main/20211018/aed501b0d68152164588d42b32ca4919-6c4cfc.png)

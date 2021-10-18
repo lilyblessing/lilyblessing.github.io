@@ -6,7 +6,7 @@ tags:
 # Tmux的安装与配置记录
 ##  Tmux是什么？
 Tmux 是一个终端复用器（terminal multiplexer），属于常用的开发工具，用于终端会话进程的配置与分离，也就是起到一个类似于虚拟终端的效果；类似功能的还有screen，这两个工具我都有在使用，我是由screen转到tmux的。  
-![PID90581839](https://oss.lilyblessing.xyz/2:/img/PID90581839.webp)
+![PID90581839](https://raw.githubusercontent.com/lilyblessing/img/main/20211018/98f0d741113770a71e86d71134617b13-63f5c3.webp)
 ### 什么是会话？  
 命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称"窗口"），在里面输入命令。用户与计算机的这种临时的交互，称为一次"会话"（session） 。  
 会话的一个重要特点是，窗口与其中启动的进程是连在一起的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。  

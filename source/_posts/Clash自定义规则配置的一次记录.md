@@ -10,13 +10,13 @@ tags:
 ## 流程
 ### 1. 写入自定义规则  
 在`Profiles`页面找到需要加入特定规则的配置项，第三个图标即为编辑规则
-![editrules](https://oss.lilyblessing.xyz/2:/img/editRules.jpg)
+![editrules](https://raw.githubusercontent.com/lilyblessing/img/main/20211018/ac883f0331ef9bac181040e8184642ef-b9dbc7.jpg)
 打开后会显示前一百条规则，点击左上角的`add`添加自定义规则
-![addrules](https://oss.lilyblessing.xyz/2:/img/addRules.jpg)
+![addrules](https://raw.githubusercontent.com/lilyblessing/img/main/20211018/5d4b719f449fd8ce18794389818981e9-7256f7.jpg)
 DOMAIN-SUFFIX为一级域名匹配，如bilibili.com；  
 DOMAIN为全域名匹配，如pan.baidu.com；  
 DOMAIN-KEYWORD为域名关键词匹配，如baidu可以匹配pan.baidu.com也可以匹配www.baidu.com；
-![CreatNewRule](https://oss.lilyblessing.xyz/2:/img/CreatNewRule.jpg)
+![CreatNewRule](https://raw.githubusercontent.com/lilyblessing/img/main/20211018/b4988d772db6f48039ed8de08b200839-09dd3b.jpg)
 编辑完毕后，点击右上角的`Add`加入规则集，然后点击右上角的`Save`写入磁盘。
 
 ### 2. 获取自定义规则代码
@@ -128,4 +128,4 @@ parsers: #
 
 以上，暂时先讲这么多；后续还有啥没说的话，就想起来了再补。
 
-![End](https://oss.lilyblessing.xyz/2:/img/pid=90325048.webp)
+![End](https://raw.githubusercontent.com/lilyblessing/img/main/20211018/bc95d75945a128e95e084b1446a9eb5d-521e63.webp)

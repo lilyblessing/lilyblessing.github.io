@@ -7,7 +7,7 @@ tags:
 由于平常看的一些youtuber的直播或者歌回容易触发youtube版权大棒，导致无法留档；  
 由此萌生了在个人VPS上部署实时录制youtube直播和youtube视频下载的工具。
 
-![占位1](https://oss.lilyblessing.xyz/2:/img/pid90402323.webp)
+![占位1](https://raw.githubusercontent.com/lilyblessing/img/main/20211018/d3f095c9eeae643be803d0c084b4f49e-02be1d.webp)
 ## 所需的工具和项目
  - 录制工具: [liverecord](https://github.com/lovezzzxxx/liverecord)  
  - 下载工具: [youtube-dl](https://github.com/ytdl-org/youtube-dl)  
@@ -41,7 +41,7 @@ curl https://rclone.org/install.sh | sudo bash
 # 配置rclone  具体配置看其他教程
 rclone config
 ```
-![占位2](https://oss.lilyblessing.xyz/2:/img/pid=90915922.webp)
+![占位2](https://raw.githubusercontent.com/lilyblessing/img/main/20211018/163ae037f59b1d5727913438d9e2abaf-b3f9ee.webp)
 ## 配置使用
 ``` bash
 # 使用方法
@@ -99,7 +99,7 @@ curl https://yt-dl.org/latest/youtube-dl -o /usr/local/bin/youtube-dl
 # 安装you-get
 pip3 install you-get
 ```
-![占位3](https://oss.lilyblessing.xyz/2:/img/S_88062650_p0.webp)
+![占位3](https://raw.githubusercontent.com/lilyblessing/img/main/20211018/6df0218a9bc5f21df10a16420cb0f7ad-52b9be.webp)
 ## 配置使用
 ```bash
 # Youtube-dl 最简单的使用方式,默认直接放youtube地址
