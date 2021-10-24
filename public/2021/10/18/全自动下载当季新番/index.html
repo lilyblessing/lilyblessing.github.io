@@ -9,7 +9,7 @@
     
     <title>
         
-            配置Mosh的一次记录 |
+            全自动下载当季新番 |
         
         Lily&#39;s Blog
     </title>
@@ -146,7 +146,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">配置Mosh的一次记录</span>
+            <span class="title-hover-animation">全自动下载当季新番</span>
         </div>
 
         
@@ -164,7 +164,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-06-17 17:48:00
+        <i class="fas fa-edit"></i>&nbsp;2021-10-18 21:12:48
     </span>
     
     
@@ -172,7 +172,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>557 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>611 字</span>
         </span>
     
     
@@ -193,46 +193,83 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="使用mosh来优化ssh连接"><a href="#使用mosh来优化ssh连接" class="headerlink" title="使用mosh来优化ssh连接"></a>使用mosh来优化ssh连接</h2><p>笔者日常使用的是广电网，极其不稳定的网络连接导致一个网络波动就能掉线。<br>由于SSH采用不可持续的连接，当网络出现波动时，SSH断开会导致当前正在运行的服务中断，对工作产生非常大的影响。<br>无意间知道了Mosh这个东西，安装使用下，发现网络波动这种事情不会导致服务器连接断开了，特意查了下，原来Mosh使用的是UDP方式传输：虽然也支持使用SSH配置进行认证登录，但是数据传输本身是使用UDP方式的，Mosh支持在会话中断时，不会立即退出，而是启用一个计时器，当网络恢复后会自动连接，同时会延续之前的会话，不会重新开启一个。实在是帮大忙了。</p>
-<h3 id="安装mosh"><a href="#安装mosh" class="headerlink" title="安装mosh"></a>安装mosh</h3><h4 id="1-在服务器端安装"><a href="#1-在服务器端安装" class="headerlink" title="1. 在服务器端安装"></a>1. 在服务器端安装</h4><p>安装以笔者使用的CentOS7系统为例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ yum install -y epel-release</span><br><span class="line">$ yum install -y mosh </span><br></pre></td></tr></table></figure>
-
-<p>mosh使用的默认端口号UDP的60000-61000，很明显这个范围太大了，不合适也不安全。<br>我们只放行60000-60010区间的udp端口即可。</p>
-<ul>
-<li>如果是iptables<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iptables -I INPUT 1 -p udp --dport 60000:60010 -j ACCEPT</span><br></pre></td></tr></table></figure></li>
-<li>如果是firewall<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ firewall-cmd --permanent --zone=public --add-port=60000-60010/udp</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="2-在客户端使用"><a href="#2-在客户端使用" class="headerlink" title="2. 在客户端使用"></a>2. 在客户端使用</h4><ul>
-<li>如果默认端口号22没有改变，则只需要将原ssh改为mosh，mosh会自动接管ssh的配置(因此原ssh所用的端口号不能关闭)</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mosh root@192.168.**.**</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>如果ssh默认端口号改变了，就需要指定端口号，这里ssh端口号为123</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mosh --ssh=<span class="string">&quot;ssh -p 123&quot;</span> root@192.168.**.**</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>只开启了一个或者几个mosh端口，需要指定端口号mosh端口号</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mosh -p 60010 --ssh=<span class="string">&quot;ssh -p 123&quot;</span> root@192.168.**.**</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>不用密码使用秘钥登录 需要将服务器与本机的密钥的目录写好</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosh -p 60010 --ssh=<span class="string">&quot;/usr/bin/ssh -i /home/ivo/.ssh/id_rsa&quot;</span> root@192.168.**.**</span><br></pre></td></tr></table></figure>
-
-<h4 id="这里推荐一个终端-FluentTerminal"><a href="#这里推荐一个终端-FluentTerminal" class="headerlink" title="这里推荐一个终端 FluentTerminal"></a>这里推荐一个终端 <a class="link"   target="_blank" rel="noopener" href="https://github.com/felixse/FluentTerminal" >FluentTerminal<i class="fas fa-external-link-alt"></i></a></h4><p>这个终端采用fluent设计，界面很美观，而且原生支持mosh连接，感兴趣的朋友可以自行安装体验<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/lilyblessing/img/main/20211018/524be333a47eae8969b395f59c9151a5-060c8f.png"
-                      alt="FluentTerminal"
-                ></p>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在如今这个后版权时代，在线追番的体验越来越差；许多人选择回到下载时代自己动手丰衣足食。但是每一集更新都手动下载未免有些太繁琐。这里推荐以下两种自动化方案。</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/lilyblessing/img/main/20211018/aed501b0d68152164588d42b32ca4919-6c4cfc.png"
-                      alt="FluentSettings"
+                     data-src="https://raw.githubusercontent.com/lilyblessing/img/main/20211018/223531-cb5d1127cc5792fe60610c7d1a991a04-3905b5.webp"
+                     
+                ></p>
+<h2 id="所需项目和工具"><a href="#所需项目和工具" class="headerlink" title="所需项目和工具"></a>所需项目和工具</h2><ul>
+<li>搭建好或者准备搭建aria2下载服务器，可以考虑用aria2+flexget组合自动下载上传<ul>
+<li>搭建aria2服务器 这里推荐使用P3TERX的<a class="link"   target="_blank" rel="noopener" href="https://p3terx.com/archives/offline-download-of-onedrive-gdrive.html" >一键脚本<i class="fas fa-external-link-alt"></i></a>方案，同时也处理好了后台上传网盘的效果</li>
+<li>然后安装flexget获取rss推送至aria2服务器下载</li>
+</ul>
+</li>
+<li>不打算使用aria2下载，那么可以考虑用qbittorrent或者类似软件的RSS下载器自动下载。</li>
+<li>下文所提到的rss订阅都来自于[蜜柑计划](<a class="link"   target="_blank" rel="noopener" href="https://mikanani.me/" >蜜柑计划 - Mikan Project (mikanani.me)<i class="fas fa-external-link-alt"></i></a>)的rss订阅，上手以后可以自行扩展</li>
+</ul>
+<h3 id="关于RSS订阅"><a href="#关于RSS订阅" class="headerlink" title="关于RSS订阅"></a>关于RSS订阅</h3><ol>
+<li>打开 [蜜柑计划](<a class="link"   target="_blank" rel="noopener" href="https://mikanani.me/" >蜜柑计划 - Mikan Project (mikanani.me)<i class="fas fa-external-link-alt"></i></a>) 登陆</li>
+<li>订阅想看的当季新番</li>
+<li>切换到订阅页面复制自己的rss订阅链接</li>
+</ol>
+<h2 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h2><h3 id="首先是aria2的方案"><a href="#首先是aria2的方案" class="headerlink" title="首先是aria2的方案"></a>首先是aria2的方案</h3><ol>
+<li><p>一键脚本搭建aria2</p>
+</li>
+<li><p>安装好pip3环境</p>
+</li>
+<li><p>安装flexget</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br><span class="line">yum install python3-pip</span><br><span class="line">pip3 install --upgrade pip</span><br><span class="line">pip3 install --upgrade setuptools</span><br><span class="line">pip3 install --ignore-installed flexget</span><br></pre></td></tr></table></figure></li>
+<li><p>配置flexget</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &amp;&amp; mkdir -p ~/.config/flexget </span><br><span class="line"><span class="built_in">cd</span> .config/flexget	</span><br><span class="line">touch config.yml</span><br><span class="line">nano config.yml</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>编辑config.yml文件范例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">	Anime:</span><br><span class="line">		rss: rss的订阅链接</span><br><span class="line">		accept_all: yes</span><br><span class="line">		aria2:</span><br><span class="line">			server: aria2服务器ip</span><br><span class="line">			port: 6800</span><br><span class="line">			secret: <span class="string">&#x27;密钥&#x27;</span></span><br><span class="line">			path: /root/downloads</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果配置无误，可以测试一下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flexget --<span class="built_in">test</span> execute</span><br></pre></td></tr></table></figure>
+
+<p>无报错就继续（有报错自己解决XD</p>
+<p>使用crontab设置flexget刷新，首先查找Flexget路径：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> flexget</span><br></pre></td></tr></table></figure>
+
+
+
+<p>假设我们的路径一样为<code>&quot;/usr/local/bin/flexget&quot;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+
+
+<p>添加此行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/2 * * * * /usr/<span class="built_in">local</span>/bin/flexget --cron execute</span><br></pre></td></tr></table></figure>
+
+
+
+<p>稍等片刻查看状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flexget status</span><br></pre></td></tr></table></figure>
+
+<p>有问题可以观察日志</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.config/flexget/flexget.log</span><br></pre></td></tr></table></figure>
+
+<p>至此aria2方案结束</p>
+<hr>
+<h3 id="然后是qbittorrent方案"><a href="#然后是qbittorrent方案" class="headerlink" title="然后是qbittorrent方案"></a>然后是qbittorrent方案</h3><ol>
+<li>下载 [qBittorrent](<a class="link"   target="_blank" rel="noopener" href="https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases/" >Releases · c0re100/qBittorrent-Enhanced-Edition (github.com)<i class="fas fa-external-link-alt"></i></a>) 安装</li>
+<li>打开rss阅读器，新开一个订阅 rss链接丢进去。</li>
+<li>然后打开qB右侧的的rss下载器</li>
+<li>新建一个下载规则，选择刚刚的源</li>
+<li>在自定义规则中筛选，上手后可以自行正则处理。</li>
+</ol>
+<p>qB下载方案至此结束。</p>
+<h3 id="关于RSS的获取"><a href="#关于RSS的获取" class="headerlink" title="关于RSS的获取"></a>关于RSS的获取</h3><p>上手后可考虑自行用正则筛选nyaa站或者rarbg的影视资源，这里不做过多赘述。欢迎留言讨论</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/lilyblessing/img/main/20211018/231902-8c6ee70360907c722a864ca7f35b219a-547939.webp"
+                     
                 ></p>
 
         </div>
@@ -241,11 +278,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：配置Mosh的一次记录</li>
+        <li>本文标题：全自动下载当季新番</li>
         <li>本文作者：Lily Blessing</li>
-        <li>创建时间：2021-06-17 17:48:00</li>
+        <li>创建时间：2021-10-18 21:12:48</li>
         <li>
-            本文链接：https://www.lilyblessing.tk/2021/06/17/配置Mosh的一次记录/
+            本文链接：https://www.lilyblessing.tk/2021/10/18/全自动下载当季新番/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -259,21 +296,21 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/lilyblessing.github.io/2021/06/18/%E6%90%AD%E5%BB%BA%E8%AE%A2%E9%98%85%E8%BD%AC%E6%8D%A2%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%B8%80%E6%AC%A1%E8%AE%B0%E5%BD%95/"
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/lilyblessing.github.io/2021/07/07/%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7KeePass%E7%9A%84%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/"
                         >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">搭建订阅转换服务的一次记录</span>
-                                <span class="post-nav-item">上一篇</span>
+                                <span class="post-nav-title-item">密码管理工具KeePass的使用心得</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
                             </span>
                         </a>
                     </div>
-                
                 
             </div>
         
@@ -450,7 +487,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8mosh%E6%9D%A5%E4%BC%98%E5%8C%96ssh%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text">使用mosh来优化ssh连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85mosh"><span class="nav-number">1.1.</span> <span class="nav-text">安装mosh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 在服务器端安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%9C%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 在客户端使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E6%8E%A8%E8%8D%90%E4%B8%80%E4%B8%AA%E7%BB%88%E7%AB%AF-FluentTerminal"><span class="nav-number">1.1.3.</span> <span class="nav-text">这里推荐一个终端 FluentTerminal</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%80%E9%9C%80%E9%A1%B9%E7%9B%AE%E5%92%8C%E5%B7%A5%E5%85%B7"><span class="nav-number">1.1.</span> <span class="nav-text">所需项目和工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8ERSS%E8%AE%A2%E9%98%85"><span class="nav-number">1.1.1.</span> <span class="nav-text">关于RSS订阅</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">搭建流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E6%98%AFaria2%E7%9A%84%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.1.</span> <span class="nav-text">首先是aria2的方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%84%B6%E5%90%8E%E6%98%AFqbittorrent%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.2.</span> <span class="nav-text">然后是qbittorrent方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8ERSS%E7%9A%84%E8%8E%B7%E5%8F%96"><span class="nav-number">1.2.3.</span> <span class="nav-text">关于RSS的获取</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
