@@ -9,7 +9,7 @@
     
     <title>
         
-            配置Mosh的一次记录 |
+            OneDrive备份目录问题 |
         
         Lily&#39;s Blog
     </title>
@@ -146,7 +146,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">配置Mosh的一次记录</span>
+            <span class="title-hover-animation">OneDrive备份目录问题</span>
         </div>
 
         
@@ -164,7 +164,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-06-17 17:48:00
+        <i class="fas fa-edit"></i>&nbsp;2021-10-24 13:32:54
     </span>
     
     
@@ -172,7 +172,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>557 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>576 字</span>
         </span>
     
     
@@ -193,46 +193,58 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="使用mosh来优化ssh连接"><a href="#使用mosh来优化ssh连接" class="headerlink" title="使用mosh来优化ssh连接"></a>使用mosh来优化ssh连接</h2><p>笔者日常使用的是广电网，极其不稳定的网络连接导致一个网络波动就能掉线。<br>由于SSH采用不可持续的连接，当网络出现波动时，SSH断开会导致当前正在运行的服务中断，对工作产生非常大的影响。<br>无意间知道了Mosh这个东西，安装使用下，发现网络波动这种事情不会导致服务器连接断开了，特意查了下，原来Mosh使用的是UDP方式传输：虽然也支持使用SSH配置进行认证登录，但是数据传输本身是使用UDP方式的，Mosh支持在会话中断时，不会立即退出，而是启用一个计时器，当网络恢复后会自动连接，同时会延续之前的会话，不会重新开启一个。实在是帮大忙了。</p>
-<h3 id="安装mosh"><a href="#安装mosh" class="headerlink" title="安装mosh"></a>安装mosh</h3><h4 id="1-在服务器端安装"><a href="#1-在服务器端安装" class="headerlink" title="1. 在服务器端安装"></a>1. 在服务器端安装</h4><p>安装以笔者使用的CentOS7系统为例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ yum install -y epel-release</span><br><span class="line">$ yum install -y mosh </span><br></pre></td></tr></table></figure>
-
-<p>mosh使用的默认端口号UDP的60000-61000，很明显这个范围太大了，不合适也不安全。<br>我们只放行60000-60010区间的udp端口即可。</p>
-<ul>
-<li>如果是iptables<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iptables -I INPUT 1 -p udp --dport 60000:60010 -j ACCEPT</span><br></pre></td></tr></table></figure></li>
-<li>如果是firewall<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ firewall-cmd --permanent --zone=public --add-port=60000-60010/udp</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="2-在客户端使用"><a href="#2-在客户端使用" class="headerlink" title="2. 在客户端使用"></a>2. 在客户端使用</h4><ul>
-<li>如果默认端口号22没有改变，则只需要将原ssh改为mosh，mosh会自动接管ssh的配置(因此原ssh所用的端口号不能关闭)</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mosh root@192.168.**.**</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>如果ssh默认端口号改变了，就需要指定端口号，这里ssh端口号为123</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mosh --ssh=<span class="string">&quot;ssh -p 123&quot;</span> root@192.168.**.**</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>只开启了一个或者几个mosh端口，需要指定端口号mosh端口号</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mosh -p 60010 --ssh=<span class="string">&quot;ssh -p 123&quot;</span> root@192.168.**.**</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>不用密码使用秘钥登录 需要将服务器与本机的密钥的目录写好</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosh -p 60010 --ssh=<span class="string">&quot;/usr/bin/ssh -i /home/ivo/.ssh/id_rsa&quot;</span> root@192.168.**.**</span><br></pre></td></tr></table></figure>
-
-<h4 id="这里推荐一个终端-FluentTerminal"><a href="#这里推荐一个终端-FluentTerminal" class="headerlink" title="这里推荐一个终端 FluentTerminal"></a>这里推荐一个终端 <a class="link"   target="_blank" rel="noopener" href="https://github.com/felixse/FluentTerminal" >FluentTerminal<i class="fas fa-external-link-alt"></i></a></h4><p>这个终端采用fluent设计，界面很美观，而且原生支持mosh连接，感兴趣的朋友可以自行安装体验<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/lilyblessing/img/main/20211018/524be333a47eae8969b395f59c9151a5-060c8f.png"
-                      alt="FluentTerminal"
-                ></p>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于工作需求，需要在几台电脑上同步工作区而开始找同步盘。然后直接盯上了Windows系统自带的Onedrive，虽然免费版只有5G的同步空间，但对于工作同步目录已经绰绰有余。</p>
+<p>不知道微软出于何种考虑只能同步限定的几个目录，无法向同类竞品那般自定义同步目录，搜索了一下大家的解决方案都是用mklink命令处理。我实际使用了一些效果还可以接受，就记录一下步骤。</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/lilyblessing/img/main/20211018/aed501b0d68152164588d42b32ca4919-6c4cfc.png"
-                      alt="FluentSettings"
+                     data-src="https://cdn.jsdelivr.net/gh/lilyblessing/img@main/20211024/akinecoco987-1446779424771231745-20211009_180749-img2.5av4o3htqys0.webp"
+                      alt="akinecoco987-1446779424771231745-20211009_180749-img2"
+                ></p>
+<h2 id="创建符号链接流程"><a href="#创建符号链接流程" class="headerlink" title="创建符号链接流程"></a>创建符号链接流程</h2><h3 id="符号链接"><a href="#符号链接" class="headerlink" title="符号链接"></a>符号链接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mklink [/d][/h][/j] link target</span><br><span class="line">/d 创建目录符号链接。默认为文件符号链接。</span><br><span class="line">/h 创建硬链接而非符号链接。</span><br><span class="line">/j 创建目录链接。</span><br><span class="line">link 指定新的符号链接名称</span><br><span class="line">target 制定新链接引用的路径</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>确定自己Onedrive盘所在路径。</p>
+<ol>
+<li>打开Onedrive文件夹。<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/lilyblessing/img@main/20211024/%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E5%A4%B9.1yv4bhzfomio.webp"
+                      alt="打开文件夹"
+                ></li>
+<li>随意选择一个文件右键查看属性—位置。<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/lilyblessing/img@main/20211024/%E6%89%93%E5%BC%80%E8%B7%AF%E5%BE%84.2pvg9tpmd2q0.webp"
+                      alt="打开路径"
+                ></li>
+</ol>
+</li>
+<li><p>确定自己需要同步的工作路径，比如 <code>E:\workspace</code></p>
+</li>
+<li><p>创建软链接</p>
+<ol>
+<li>新建的Onedrive符号链接地址<code>C:\Users\lilyB\OneDrive\workspace</code></li>
+<li>工作目录地址<code>E:\workspace</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mklink /j <span class="string">&quot;C:\Users\lilyB\OneDrive\workspace&quot;</span> <span class="string">&quot;E:\workspace&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意创建符号链接时，OneDrive目录不能存在跟新建的符号同名的文件或者目录。</p>
+</li>
+</ol>
+<p>这样符号链接就创建完成了，之后该文件夹就会上传至OneDrive。</p>
+<p>但这样还会有一个问题：当第一次文件夹同步完成以后，以后做的文件修改不会马上同步，会在OneDrive中显示同步挂起状态。</p>
+<h2 id="解决同步挂起问题"><a href="#解决同步挂起问题" class="headerlink" title="解决同步挂起问题"></a>解决同步挂起问题</h2><p>这是由于Onedrive目录下所检测的只是一个软连接符号，而非真正目录。所以同步会有延迟，并非是完全不同步。对于需要马上同步的较小工作目录而言，这是致命伤；但是有大佬给出了解决方案。</p>
+<p><strong>反其道而行之</strong></p>
+<p>逆向创建符号链接就可以了：把工作目录整个搬进OneDrive中，然后在原本的工作目录创建符号链接就可了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mklink /d <span class="string">&quot;E:\workspace&quot;</span> <span class="string">&quot;C:\Users\lilyB\OneDrive\workspace&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样同步问题也能解决了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/lilyblessing/img@main/20211024/akinecoco987-1446779424771231745-20211009_180749-img1.qb0k7929sa.webp"
+                      alt="akinecoco987-1446779424771231745-20211009_180749-img1"
                 ></p>
 
         </div>
@@ -241,11 +253,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：配置Mosh的一次记录</li>
+        <li>本文标题：OneDrive备份目录问题</li>
         <li>本文作者：Lily Blessing</li>
-        <li>创建时间：2021-06-17 17:48:00</li>
+        <li>创建时间：2021-10-24 13:32:54</li>
         <li>
-            本文链接：https://www.lilyblessing.tk/2021/06/17/配置Mosh的一次记录/
+            本文链接：https://www.lilyblessing.tk/2021/10/24/OneDrive备份目录问题/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -259,21 +271,21 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/lilyblessing.github.io/2021/06/18/%E6%90%AD%E5%BB%BA%E8%AE%A2%E9%98%85%E8%BD%AC%E6%8D%A2%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%B8%80%E6%AC%A1%E8%AE%B0%E5%BD%95/"
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/lilyblessing.github.io/2021/10/18/%E5%85%A8%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E5%BD%93%E5%AD%A3%E6%96%B0%E7%95%AA/"
                         >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">搭建订阅转换服务的一次记录</span>
-                                <span class="post-nav-item">上一篇</span>
+                                <span class="post-nav-title-item">全自动下载当季新番</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
                             </span>
                         </a>
                     </div>
-                
                 
             </div>
         
@@ -450,7 +462,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8mosh%E6%9D%A5%E4%BC%98%E5%8C%96ssh%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text">使用mosh来优化ssh连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85mosh"><span class="nav-number">1.1.</span> <span class="nav-text">安装mosh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 在服务器端安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%9C%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 在客户端使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E6%8E%A8%E8%8D%90%E4%B8%80%E4%B8%AA%E7%BB%88%E7%AB%AF-FluentTerminal"><span class="nav-number">1.1.3.</span> <span class="nav-text">这里推荐一个终端 FluentTerminal</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">创建符号链接流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5"><span class="nav-number">1.1.1.</span> <span class="nav-text">符号链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%90%8C%E6%AD%A5%E6%8C%82%E8%B5%B7%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">解决同步挂起问题</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>

@@ -6,7 +6,7 @@ base_info:
   author: Lily Blessing
   url: https://www.lilyblessing.tk/
   # Logo image (You can use local image, image external link or don’t fill)
-  logo_img: https://oss.lilyblessing.xyz/2:/ico/flower_leaf_153834.ico
+  logo_img: https://raw.githubusercontent.com/lilyblessing/img/main/img/202309241328384.ico
 
 
 # ---------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ style:
   avatar: https://avatars.githubusercontent.com/u/62462973?v=4
 
   # Favicon (You can use local image or image external link)
-  favicon: https://oss.lilyblessing.xyz/2:/ico/flower_leaf_153834.ico
+  favicon: https://raw.githubusercontent.com/lilyblessing/img/main/img/202309241328384.ico
 
   # Article image align position, value: left | center
   article_img_align: left
