@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="buzai,cmn">
+    <meta name="author" content="Lily Blessing">
+    
+    <title>
+        
+            Clash自定义规则配置的一次记录 |
+        
+        Lily&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/lilyblessing.github.io/css/style.css">
+
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/lilyblessing/img/main/img/202309241328384.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"www.lilyblessing.tk","root":"/lilyblessing.github.io/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://avatars.githubusercontent.com/u/62462973?v=4","favicon":"https://raw.githubusercontent.com/lilyblessing/img/main/img/202309241328384.ico","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 7.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://raw.githubusercontent.com/lilyblessing/img/main/img/202309241328384.ico">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Lily&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/lilyblessing.github.io/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/lilyblessing.github.io/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/lilyblessing.github.io/bangumis"
+                            >
+                                番剧
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/lilyblessing.github.io/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/lilyblessing.github.io/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/lilyblessing.github.io/bangumis">番剧</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Clash自定义规则配置的一次记录</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://avatars.githubusercontent.com/u/62462973?v=4">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Lily Blessing</span>
+                        
+                            <span class="author-label">Engineer</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-06-19 19:46:20
+    </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.4k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="Clash自定义规则配置"><a href="#Clash自定义规则配置" class="headerlink" title="Clash自定义规则配置"></a>Clash自定义规则配置</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>体验了一段时间，Clash的分流功能很好用，而且用订阅转换可以很方便的把v2和ssr的订阅链接转换为clash使用。但是也存在一个痛点，个别网站的规则并没有收录于在线规则列表中，需要自己本地手动添加；而添加之后，每次更新订阅之前手动写入的规则就会被覆盖掉。本来打算在转换服务器中添加自定义规则，折腾一番发现clash客户端上自带这种功能。</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h3 id="1-写入自定义规则"><a href="#1-写入自定义规则" class="headerlink" title="1. 写入自定义规则"></a>1. 写入自定义规则</h3><p>在<code>Profiles</code>页面找到需要加入特定规则的配置项，第三个图标即为编辑规则<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/lilyblessing/img/main/20211018/ac883f0331ef9bac181040e8184642ef-b9dbc7.jpg"
+                      alt="editrules"
+                ><br>打开后会显示前一百条规则，点击左上角的<code>add</code>添加自定义规则<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/lilyblessing/img/main/20211018/5d4b719f449fd8ce18794389818981e9-7256f7.jpg"
+                      alt="addrules"
+                ><br>DOMAIN-SUFFIX为一级域名匹配，如bilibili.com；<br>DOMAIN为全域名匹配，如pan.baidu.com；<br>DOMAIN-KEYWORD为域名关键词匹配，如baidu可以匹配pan.baidu.com也可以匹配<a class="link"   target="_blank" rel="noopener" href="http://www.baidu.com;/" >www.baidu.com；<i class="fas fa-external-link-alt"></i></a><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/lilyblessing/img/main/20211018/b4988d772db6f48039ed8de08b200839-09dd3b.jpg"
+                      alt="CreatNewRule"
+                ><br>编辑完毕后，点击右上角的<code>Add</code>加入规则集，然后点击右上角的<code>Save</code>写入磁盘。</p>
+<h3 id="2-获取自定义规则代码"><a href="#2-获取自定义规则代码" class="headerlink" title="2. 获取自定义规则代码"></a>2. 获取自定义规则代码</h3><p>在<code>Profiles</code>页面找到刚刚加入特定规则的配置项，第一个图标<code>&lt; &gt;</code>即为打开规则文件。<br>打开后按<code>Ctrl+F</code>搜索<code>rules</code>，即可定位指规则集部分。<br>此时规则从第一行至<code>  - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连</code>的前一行为你的自定义规则条目，将其复制。</p>
+<h3 id="3-预处理自定义规则"><a href="#3-预处理自定义规则" class="headerlink" title="3. 预处理自定义规则"></a>3. 预处理自定义规则</h3><p>打开<code>Clash - Settings - Profiles - Parsers - Edit</code>打开预处理规则<br>之前修改以下代码复制进去  </p>
+<ul>
+<li>这是单个配置文件的情况<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">parsers: <span class="comment"># array</span></span><br><span class="line">  - url: https://****.***/******  <span class="comment">#将这些替换成你的订阅链接</span></span><br><span class="line">    yaml:</span><br><span class="line">      prepend-rules:</span><br><span class="line">        - DOMAIN-SUFFIX,****.com,🚀 节点选择  <span class="comment">#将这些替换成你的规则</span></span><br><span class="line">        - DOMAIN-KEYWORD,****,🚀 节点选择</span><br></pre></td></tr></table></figure></li>
+<li>如果有多个配置文件，并且订阅链接的域是一样的话，可以使用正则表达式<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">parsers: <span class="comment"># array</span></span><br><span class="line">  - reg: https://abcd.xyz.+$  <span class="comment">#将abcd.xyz替换成你的订阅链接的相同部分</span></span><br><span class="line">    yaml:</span><br><span class="line">      prepend-rules:</span><br><span class="line">        - DOMAIN-SUFFIX,****.com,🚀 节点选择  <span class="comment">#将这些替换成你的规则</span></span><br><span class="line">        - DOMAIN-KEYWORD,****,🚀 节点选择</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>点击右下角保存，然后去更新一下订阅的配置文件。<br>可以点击<code>editRules</code>检查一下规则是否确实被写入了。</p>
+<h3 id="4-进阶配置"><a href="#4-进阶配置" class="headerlink" title="4. 进阶配置"></a>4. 进阶配置</h3><p>这部分主要讲一些略微进阶的配置，具体都可以在github的clash项目<a target="_blank" rel="noopener" href="https://docs.cfw.lbyczf.com/contents/configfile.html"><strong>wiki</strong></a>上查到。  </p>
+<h4 id="配置dns方面："><a href="#配置dns方面：" class="headerlink" title="配置dns方面："></a>配置dns方面：</h4><p>打开Clash的主界面 切换至<code>Settings</code>选项卡，然后找到<code>Profile Mixin</code>选项，<code>Type</code>选择<code>YAML</code>，然后点击YAML行的<code>edit</code><br>输入以下代码并保存:  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mixin: # object</span><br><span class="line">  dns:</span><br><span class="line">    enable: true</span><br><span class="line">    enhanced-mode: redir-host</span><br><span class="line">    nameserver:</span><br><span class="line">      - 114.114.114.114</span><br><span class="line">      - 223.5.5.5</span><br><span class="line">      - 1.2.4.8</span><br><span class="line">      - tls://dns.rubyfish.cn:853</span><br><span class="line">      - https://dns.alidns.com/dns-query</span><br><span class="line">    fallback:</span><br><span class="line">      - tls://1.0.0.1:853</span><br><span class="line">      - tls://8.8.4.4:853</span><br><span class="line">  tun:</span><br><span class="line">    enable: true</span><br><span class="line">    stack: gvisor</span><br><span class="line">    dns-hijack:</span><br><span class="line">      - 198.18.0.2:53</span><br><span class="line">    macOS-auto-route: true</span><br><span class="line">    macOS-auto-detect-interface: true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这样就配置好了</p>
+<hr>
+<h4 id="添加负载均衡组："><a href="#添加负载均衡组：" class="headerlink" title="添加负载均衡组："></a>添加负载均衡组：</h4><p>打开Clash的主界面 切换至<code>Settings</code>选项卡，然后找到<code>Profiles</code>下的<code>Parsers</code>选项，然后点击<code>edit</code><br>自行更改以下代码保存：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">parsers: # </span><br><span class="line">  - reg: https://****.***/******  #将这些替换成你的订阅链接</span><br><span class="line">    yaml:</span><br><span class="line">      append-proxy-groups:  #添加自定义负载均衡组</span><br><span class="line">        - name: 🔮 HK负载均衡</span><br><span class="line">          type: load-balance</span><br><span class="line">          url: http://www.gstatic.com/generate_204</span><br><span class="line">          interval: 180</span><br><span class="line">          proxies:</span><br><span class="line">            - DIRECT</span><br><span class="line">        - name: 🔮 TW负载均衡</span><br><span class="line">          type: load-balance</span><br><span class="line">          url: http://www.gstatic.com/generate_204</span><br><span class="line">          interval: 180</span><br><span class="line">          proxies:</span><br><span class="line">            - DIRECT</span><br><span class="line">      prepend-rules:  #添加自定义规则</span><br><span class="line">        - DOMAIN-SUFFIX,****.com,🚀 节点选择 </span><br><span class="line">        - DOMAIN-KEYWORD,****,🚀 节点选择	</span><br><span class="line">      commands:</span><br><span class="line">        - proxy-groups.🔮 HK负载均衡.proxies=[]proxyNames|HK|香港 # 向🔮 HK负载均衡策略组添加所有定义的节点名，并按“HK|香港”正则表达式过滤</span><br><span class="line">        - proxy-groups.🔮 TW负载均衡.proxies=[]proxyNames|台湾 # 向🔮 HK负载均衡策略组添加所有定义的节点名，并按“台湾”正则表达式过滤</span><br><span class="line">        - proxy-groups.🚀 节点选择.proxies.8+🔮 HK负载均衡 # 向🚀 节点选择策略组添加组名🔮 HK负载均衡 proxies.8是从指 节点选择 组中从0开始数的第八位 这里意思是在第八位插入这个🔮 HK负载均衡组</span><br><span class="line">        - proxy-groups.🚀 节点选择.proxies.9+🔮 TW负载均衡 # 向🚀 节点选择策略组添加组名🔮 TW负载均衡</span><br></pre></td></tr></table></figure>
+<p>修改保存后，更新订阅就能看到新加入的负载均衡组了。</p>
+<p>这里介绍一下clash的几种策略组：<br>策略组有：<code>延迟最低</code>、<code>故障转移</code>、<code>手动选择</code>、<code>负载均衡</code> 四种模式。</p>
+<ul>
+<li>延迟最低：<code>url-test</code>，也就是自动选择默认组，顾名思义，每隔一段时间进行延迟测试，选择延时最低的节点。他有几个参数我稍微提一下<ol>
+<li><code>url:http://www.gstatic.com/generate_204</code> 这里是指延迟测试的网站，一般保持默认即可</li>
+<li><code>interval: 300</code> 这里是指自动测试、切换节点的间隔时间 如果觉得每次切换太慢，可以适当调整</li>
+<li><code>tolerance: 50</code> 容忍度，指测试出来一组节点中，延迟相差不太大的时候怎么处理；比如容忍度50，当前选择节点150ms，节点测速中只有更进一步低于50，也就是小于100ms时才会切换节点，避免频繁切换造成连接打断</li>
+</ol>
+</li>
+<li>故障转移：每次都选组内的第一个节点，如果无法使用在切到第二个，依此类推。</li>
+<li>手动选择：字面意思，自己手选点一个</li>
+<li>负载均衡：每次连接都随机到组里挑一个节点，如果那个节点故障了，就再随机挑一个；所以也有自动选择组中的一些参数。</li>
+</ul>
+<hr>
+<p>以上，暂时先讲这么多；后续还有啥没说的话，就想起来了再补。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/lilyblessing/img/main/20211018/bc95d75945a128e95e084b1446a9eb5d-521e63.webp"
+                      alt="End"
+                ></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：Clash自定义规则配置的一次记录</li>
+        <li>本文作者：Lily Blessing</li>
+        <li>创建时间：2021-06-19 19:46:20</li>
+        <li>
+            本文链接：https://www.lilyblessing.tk/2021/06/19/Clash自定义规则配置的一次记录/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/lilyblessing.github.io/2021/06/20/%E4%BA%8C%E5%88%BA%E8%9E%88%E8%90%8C%E8%B1%9A%E7%9A%84%E8%90%8C%E8%90%8C%E5%9B%BE%E6%94%B6%E8%97%8F%E6%96%B9%E6%A1%88/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">二刺螈萌豚的萌萌图收藏方案</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/lilyblessing.github.io/2021/06/18/%E6%90%AD%E5%BB%BA%E8%AE%A2%E9%98%85%E8%BD%AC%E6%8D%A2%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%B8%80%E6%AC%A1%E8%AE%B0%E5%BD%95/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">搭建订阅转换服务的一次记录</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: '2b56bf666f14152f579e',
+                    clientSecret: 'b2658b0993a7d3ceb78f7284a3363281b26f9bde',
+                    repo: 'gitalk',
+                    owner: 'lilyblessing',
+                    admin: ['lilyblessing'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2024&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Lily Blessing</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Clash%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Clash自定义规则配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%86%99%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 写入自定义规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%8E%B7%E5%8F%96%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 获取自定义规则代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%A2%84%E5%A4%84%E7%90%86%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 预处理自定义规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 进阶配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEdns%E6%96%B9%E9%9D%A2%EF%BC%9A"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">配置dns方面：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%BB%84%EF%BC%9A"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">添加负载均衡组：</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

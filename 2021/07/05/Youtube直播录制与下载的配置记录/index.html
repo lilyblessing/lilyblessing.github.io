@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="buzai,cmn">
+    <meta name="author" content="Lily Blessing">
+    
+    <title>
+        
+            Youtube直播录制与下载的配置记录 |
+        
+        Lily&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/lilyblessing.github.io/css/style.css">
+
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/lilyblessing/img/main/img/202309241328384.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"www.lilyblessing.tk","root":"/lilyblessing.github.io/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://avatars.githubusercontent.com/u/62462973?v=4","favicon":"https://raw.githubusercontent.com/lilyblessing/img/main/img/202309241328384.ico","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 7.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://raw.githubusercontent.com/lilyblessing/img/main/img/202309241328384.ico">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Lily&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/lilyblessing.github.io/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/lilyblessing.github.io/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/lilyblessing.github.io/bangumis"
+                            >
+                                番剧
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/lilyblessing.github.io/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/lilyblessing.github.io/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/lilyblessing.github.io/bangumis">番剧</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Youtube直播录制与下载的配置记录</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://avatars.githubusercontent.com/u/62462973?v=4">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Lily Blessing</span>
+                        
+                            <span class="author-label">Engineer</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-07-05 12:54:27
+    </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于平常看的一些youtuber的直播或者歌回容易触发youtube版权大棒，导致无法留档；<br>由此萌生了在个人VPS上部署实时录制youtube直播和youtube视频下载的工具。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/lilyblessing/img/main/20211018/d3f095c9eeae643be803d0c084b4f49e-02be1d.webp"
+                      alt="占位1"
+                ></p>
+<h2 id="所需的工具和项目"><a href="#所需的工具和项目" class="headerlink" title="所需的工具和项目"></a>所需的工具和项目</h2><ul>
+<li>录制工具: <a class="link"   target="_blank" rel="noopener" href="https://github.com/lovezzzxxx/liverecord" >liverecord<i class="fas fa-external-link-alt"></i></a>  </li>
+<li>下载工具: <a class="link"   target="_blank" rel="noopener" href="https://github.com/ytdl-org/youtube-dl" >youtube-dl<i class="fas fa-external-link-alt"></i></a>  </li>
+<li>下载工具: <a class="link"   target="_blank" rel="noopener" href="https://you-get.org/" >you-get<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h1 id="直播录制"><a href="#直播录制" class="headerlink" title="直播录制"></a>直播录制</h1><h2 id="部署安装"><a href="#部署安装" class="headerlink" title="部署安装"></a>部署安装</h2><p>这里用的是Liverecord这个脚本,安装以centOS为例:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 首先安装自动录制脚本</span></span><br><span class="line"><span class="built_in">mkdir</span> record </span><br><span class="line">wget -O <span class="string">&quot;record/record_new.sh&quot;</span> <span class="string">&quot;https://github.com/lovezzzxxx/liverecord/raw/master/record_new.sh&quot;</span> </span><br><span class="line"><span class="built_in">chmod</span> +x record/record_new.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后编译安装ffmpeg</span></span><br><span class="line"><span class="comment"># 编译耗时较长,建议使用screen或者Tmux等工具放入后台运行</span></span><br><span class="line">git <span class="built_in">clone</span> https://git.ffmpeg.org/ffmpeg.git ffmpeg</span><br><span class="line"><span class="built_in">cd</span> ffmpeg</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"><span class="built_in">cp</span> ffmpeg /usr/bin/ffmpeg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装Streamlink</span></span><br><span class="line">pip3 install streamlink</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装rclone 用于配置上传</span></span><br><span class="line">curl https://rclone.org/install.sh | sudo bash</span><br><span class="line"><span class="comment"># 配置rclone  具体配置看其他教程</span></span><br><span class="line">rclone config</span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/lilyblessing/img/main/20211018/163ae037f59b1d5727913438d9e2abaf-b3f9ee.webp"
+                      alt="占位2"
+                ></p>
+<h2 id="配置使用"><a href="#配置使用" class="headerlink" title="配置使用"></a>配置使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用方法</span></span><br><span class="line"><span class="built_in">cd</span> record</span><br><span class="line">./record_new.sh [-参数 值] 频道类型 频道号码</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用默认值进行录制</span></span><br><span class="line">./record_new.sh youtube <span class="string">&quot;UCJABeTIKrhExlG6tBTov_ZA&quot;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">默认值</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">–nico-id</td>
+<td align="left">无</td>
+<td align="left">nico用户名</td>
+</tr>
+<tr>
+<td align="left">–nico-psw</td>
+<td align="left">无</td>
+<td align="left">nico密码</td>
+</tr>
+<tr>
+<td align="left">–you-cookies</td>
+<td align="left">无</td>
+<td align="left">youtube监测cookies文件,需要配合–you-config参数使用</td>
+</tr>
+<tr>
+<td align="left">–you-config</td>
+<td align="left">无</td>
+<td align="left">youtube录制配置文件,仅支持youtube频道类型</td>
+</tr>
+<tr>
+<td align="left">–bili-config</td>
+<td align="left">无</td>
+<td align="left">bilibili录制配置文件,仅bilibili频道类型</td>
+</tr>
+<tr>
+<td align="left">–bili-cookies</td>
+<td align="left">无</td>
+<td align="left">bilibili录制cookies文件,仅支持bilibiliy频道类型</td>
+</tr>
+<tr>
+<td align="left">–bili-proxy</td>
+<td align="left">无</td>
+<td align="left">bilibili录制代理</td>
+</tr>
+<tr>
+<td align="left">–bili-proxy-url</td>
+<td align="left">无</td>
+<td align="left">bilibili录制代理获取链接</td>
+</tr>
+<tr>
+<td align="left">-f&#x2F;–format</td>
+<td align="left">best</td>
+<td align="left">清晰度</td>
+</tr>
+<tr>
+<td align="left">-p&#x2F;–part-time</td>
+<td align="left">0</td>
+<td align="left">分段时间，0为不分段</td>
+</tr>
+<tr>
+<td align="left">-l&#x2F;–loop-interval</td>
+<td align="left">60</td>
+<td align="left">检测间隔</td>
+</tr>
+<tr>
+<td align="left">-ml&#x2F;–min-loop-interval</td>
+<td align="left">180</td>
+<td align="left">最短录制间隔</td>
+</tr>
+<tr>
+<td align="left">-ms&#x2F;–min-status</td>
+<td align="left">1</td>
+<td align="left">开始录制前需要持续检测到开播次数</td>
+</tr>
+<tr>
+<td align="left">-o&#x2F;-d&#x2F;–output&#x2F;–dir</td>
+<td align="left">record_video&#x2F;other</td>
+<td align="left">输出目录</td>
+</tr>
+<tr>
+<td align="left">-u&#x2F;–upload</td>
+<td align="left">无</td>
+<td align="left">上传网盘,格式为网盘类型重试次数:盘符:路径，网盘类型支持rclone paidupcs onedrive，例如rclone3:vps:record</td>
+</tr>
+<tr>
+<td align="left">-dt&#x2F;–delete-type</td>
+<td align="left">1</td>
+<td align="left">删除本地录像需要成功上传的数量，默认为1，del为强制删除，keep为强制保留，all为需要全部上传成功</td>
+</tr>
+<tr>
+<td align="left">-e&#x2F;–except</td>
+<td align="left">无</td>
+<td align="left">排除转播，格式同录制频道，如-e youtube “UCWCc8tO-uUl_7SJXIKJACMw</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用自定义参数进行录制</span></span><br><span class="line">./record_new.sh --you-cookies <span class="string">&quot;you-cookies.txt&quot;</span> --you-config <span class="string">&quot;you-config.txt&quot;</span> -f best -l 300 -o <span class="string">&quot;record_video/blanc&quot;</span> -u rclone3:vps:data youtube <span class="string">&quot;UCJABeTIKrhExlG6tBTov_ZA&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用youtubeCookie录制最高清晰度，在直播间间隔300秒检测一次是否开播；</span></span><br><span class="line"><span class="comment"># 将文件输出至当前目录的record_video/blanc文件夹下；</span></span><br><span class="line"><span class="comment"># 录制完毕后上传至rclone配置的vps主机内的data文件夹下，如果失败，自动重试3次。</span></span><br></pre></td></tr></table></figure>
+<p>由于会一直占用终端, 建议配合screen或Tmux使用</p>
+<hr>
+<h1 id="录播下载"><a href="#录播下载" class="headerlink" title="录播下载"></a>录播下载</h1><p>Youtube的下载工具主流就那几种<br>windows平台可以使用浏览器脚本配合idm下载, linux则可以使用youtube-dl或者you-get。</p>
+<h2 id="部署安装-1"><a href="#部署安装-1" class="headerlink" title="部署安装"></a>部署安装</h2><p>以下以CentOS为例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装youtube dl</span></span><br><span class="line">yum install youtube-dl</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">pip install --upgrade youtube-dl</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">curl https://yt-dl.org/latest/youtube-dl -o /usr/local/bin/youtube-dl</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装you-get</span></span><br><span class="line">pip3 install you-get</span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/lilyblessing/img/main/20211018/6df0218a9bc5f21df10a16420cb0f7ad-52b9be.webp"
+                      alt="占位3"
+                ></p>
+<h2 id="配置使用-1"><a href="#配置使用-1" class="headerlink" title="配置使用"></a>配置使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Youtube-dl 最简单的使用方式,默认直接放youtube地址</span></span><br><span class="line">youtube-dl https://www.youtube.com/watch?v=iKCQ5fyEpU8</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者也可以设置清晰度之类的参数</span></span><br><span class="line">youtube-dl https://www.youtube.com/watch?v=iKCQ5fyEpU8 -F</span><br><span class="line"><span class="comment"># -F 查看所有清晰度,格式 -f 根据编号选择清晰度格式</span></span><br><span class="line"></span><br><span class="line">youtube-dl https://www.youtube.com/watch?v=iKCQ5fyEpU8 -f best</span><br><span class="line"><span class="comment"># 可以直接设置best,直接下载油管推荐的当前清晰度最好的音视频轨合一文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 但是best无法下载2K4K以上的高清视频,可以将音视频轨分开下载</span></span><br><span class="line">youtube-dl https://www.youtube.com/watch?v=iKCQ5fyEpU8 -f bestvideo[height=1440]+bestaudio</span><br><span class="line"><span class="comment"># 这个例子为同时下载限定视频轨清晰度高度最高为1440(也就是2K清晰度)加上音质最好的音频轨文件</span></span><br><span class="line"><span class="comment"># 然后调用ffmpeg合并</span></span><br></pre></td></tr></table></figure>
+<p>每次下载都要手动添加这一串配置实在是太麻烦了，所以我们可以添加一个配置文件。Linux的配置文件应该放在<code>/etc/youtube-dl.conf</code>下,如何编写可以参考<a class="link"   target="_blank" rel="noopener" href="https://github.com/ytdl-org/youtube-dl#configuration" >官网给出的配置<i class="fas fa-external-link-alt"></i></a>。<br>以下是我的示例,仅供参考</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Lines starting with # are comments</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># Use this proxy</span></span><br><span class="line">--proxy 127.0.0.1:1089</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Save all videos under Movies directory in your home directory</span></span><br><span class="line">-o /home/data/Download/%(title)s.%(ext)s</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Use this prefix for unqualified URLs.</span></span><br><span class="line"><span class="comment"># For example &quot;gvsearch2:&quot; downloads two</span></span><br><span class="line"><span class="comment"># videos from google videos for youtube-</span></span><br><span class="line"><span class="comment"># dl &quot;large apple&quot;. Use the value &quot;auto&quot;</span></span><br><span class="line"><span class="comment"># to let youtube-dl guess (&quot;auto_warning&quot;</span></span><br><span class="line"><span class="comment"># to emit a warning when guessing).</span></span><br><span class="line"><span class="comment"># &quot;error&quot; just throws an error. The</span></span><br><span class="line"><span class="comment"># default value &quot;fixup_error&quot; repairs</span></span><br><span class="line"><span class="comment"># broken URLs, but emits an error if this</span></span><br><span class="line"><span class="comment"># is not possible instead of searching.</span></span><br><span class="line">--default-search <span class="string">&quot;ytsearch&quot;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># Keep the video file on disk after the</span></span><br><span class="line"><span class="comment"># post-processing; the video is erased by</span></span><br><span class="line"><span class="comment"># default</span></span><br><span class="line">--keep-video</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置下载视频的默认画质</span></span><br><span class="line">-f bestvideo[height=1440]+bestaudio</span><br></pre></td></tr></table></figure>
+<p>设置好配置文件后，以后就直接下载就行了, 到这里就全部完成了</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：Youtube直播录制与下载的配置记录</li>
+        <li>本文作者：Lily Blessing</li>
+        <li>创建时间：2021-07-05 12:54:27</li>
+        <li>
+            本文链接：https://www.lilyblessing.tk/2021/07/05/Youtube直播录制与下载的配置记录/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/lilyblessing.github.io/2021/07/07/%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7KeePass%E7%9A%84%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">密码管理工具KeePass的使用心得</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/lilyblessing.github.io/2021/07/05/%E9%85%8D%E7%BD%AEtmux%E7%9A%84%E4%B8%80%E6%AC%A1%E8%AE%B0%E5%BD%95/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">配置tmux的一次记录</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: '2b56bf666f14152f579e',
+                    clientSecret: 'b2658b0993a7d3ceb78f7284a3363281b26f9bde',
+                    repo: 'gitalk',
+                    owner: 'lilyblessing',
+                    admin: ['lilyblessing'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2024&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Lily Blessing</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%80%E9%9C%80%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">所需的工具和项目</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B4%E6%92%AD%E5%BD%95%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">直播录制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">部署安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8"><span class="nav-number">2.2.</span> <span class="nav-text">配置使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%95%E6%92%AD%E4%B8%8B%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">录播下载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%AE%89%E8%A3%85-1"><span class="nav-number">3.1.</span> <span class="nav-text">部署安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8-1"><span class="nav-number">3.2.</span> <span class="nav-text">配置使用</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
